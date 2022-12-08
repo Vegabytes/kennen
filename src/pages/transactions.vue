@@ -125,7 +125,7 @@
                   dense
                   debounce="300"
                   v-model="filter"
-                  placeholder="Search"
+                  placeholder="Buscar"
                 >
                   <template v-slot:append>
                     <q-icon name="search" />
@@ -165,13 +165,10 @@
                   </q-tooltip>
                 </q-btn>
 
-                <q-btn
-                  color="primary"
-                  icon-right="archive"
-                  label="Export to csv"
-                  no-caps
-                  @click="exportDepositsTable"
-                />
+                <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
               </template>
             </q-table>
           </q-card-section>

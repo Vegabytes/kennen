@@ -246,13 +246,10 @@
                   </q-tooltip>
                 </q-btn>
 
-                <q-btn
-                  style="background-color:#37CDE3;color:white"
-                  icon-right="archive"
-                  label="Export to csv"
-                  no-caps
-                  @click="exportTable"
-                />
+                <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
               </template>
             </q-table>
           </q-card>

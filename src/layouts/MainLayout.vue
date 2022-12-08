@@ -13,11 +13,11 @@
           icon="menu"
           class="q-mr-sm"
         />
-        <!--          <q-avatar>-->
-        <!--            <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">-->
-        <!--          </q-avatar>-->
+                <q-avatar>
+                <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
+                </q-avatar>
 
-        <q-toolbar-title>CRM Admin</q-toolbar-title>
+        <q-toolbar-title>Kennen</q-toolbar-title>
         <q-btn
           class="q-mr-xs"
           flat
@@ -28,12 +28,13 @@
 <!--         <a
           style="font-size: 25px;"
           class="float-right q-mr-sm"
-          href="https://github.com/sponsors/mayank091193"
+          href="https://github.com/Vegabytes"
           target="_blank"
           title="Donate"
           ><i class="fas fa-heart" style="color: #eb5daa"></i
         ></a> -->
         <q-btn flat round dense icon="search" class="q-mr-xs" />
+        <q-btn flat round dense icon="notifications" class="q-mr-xs" />
         <q-btn
           flat
           round
@@ -45,7 +46,7 @@
       </q-toolbar>
     </q-header>
     <q-drawer
-      class="left-navigation text-white"
+      class="left-navigation"
       show-if-above
       v-model="left"
       style="background-image: url(https://demos.creative-tim.com/vue-material-dashboard/img/sidebar-2.32103624.jpg) !important;"
@@ -59,14 +60,33 @@
         <div style="height: calc(100% - 117px);padding:10px;">
           <q-toolbar>
             <q-avatar>
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+<!--               <img src="https://cdn.quasar.dev/img/boy-avatar.png" /> -->
+              <img src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png" />
+
             </q-avatar>
 
-            <q-toolbar-title>Mayank Patel</q-toolbar-title>
+            <q-toolbar-title>Alex</q-toolbar-title>
           </q-toolbar>
           <hr />
           <q-scroll-area style="height:100%;">
             <q-list padding>
+              <q-item
+                active-class="tab-active"
+                to="/dashboard_v0"
+                exact
+                class="q-ma-sm navigation-item"
+                clickable
+                v-ripple
+              >
+                <q-item-section avatar>
+                  <q-icon name="dashboard" />
+                </q-item-section>
+
+                <q-item-section>
+                 General
+                </q-item-section>
+              </q-item>
+
               <q-item
                 active-class="tab-active"
                 to="/dashboard"
@@ -101,7 +121,7 @@
                 </q-item-section>
               </q-item>
 
-              <q-item
+<!--               <q-item
                 active-class="tab-active"
                 to="/dashboard_v3"
                 exact
@@ -116,8 +136,8 @@
                 <q-item-section>
                   Dashboard v3
                 </q-item-section>
-              </q-item>
-
+              </q-item> -->
+<!--
               <q-item
                 active-class="tab-active"
                 to="/customer_management"
@@ -132,9 +152,9 @@
                 <q-item-section>
                   Customer Management
                 </q-item-section>
-              </q-item>
+              </q-item> -->
 
-              <q-item
+<!--               <q-item
                 active-class="tab-active"
                 to="/change_request"
                 class="q-ma-sm navigation-item"
@@ -148,7 +168,7 @@
                 <q-item-section>
                   Change Request
                 </q-item-section>
-              </q-item>
+              </q-item> -->
 
               <q-item
                 active-class="tab-active"
@@ -162,11 +182,11 @@
                 </q-item-section>
 
                 <q-item-section>
-                  Sales Invoices
+                  Pedidos
                 </q-item-section>
               </q-item>
 
-              <q-item
+<!--               <q-item
                 active-class="tab-active"
                 to="/quotes"
                 class="q-ma-sm navigation-item"
@@ -180,9 +200,9 @@
                 <q-item-section>
                   Quotes
                 </q-item-section>
-              </q-item>
+              </q-item> -->
 
-              <q-item
+<!--               <q-item
                 active-class="tab-active"
                 to="/transactions"
                 class="q-ma-sm navigation-item"
@@ -196,9 +216,9 @@
                 <q-item-section>
                   Transactions
                 </q-item-section>
-              </q-item>
+              </q-item> -->
 
-              <q-item
+<!--               <q-item
                 active-class="tab-active"
                 to="/employee_salary_list"
                 class="q-ma-sm navigation-item"
@@ -212,7 +232,7 @@
                 <q-item-section>
                   Employee Salary List
                 </q-item-section>
-              </q-item>
+              </q-item> -->
 
               <q-item
                 active-class="tab-active"
@@ -226,11 +246,11 @@
                 </q-item-section>
 
                 <q-item-section>
-                  Calendar
+                  Calendario
                 </q-item-section>
               </q-item>
 
-              <q-item
+<!--               <q-item
                 active-class="tab-active"
                 to="/department"
                 class="q-ma-sm navigation-item"
@@ -244,7 +264,7 @@
                 <q-item-section>
                   Department
                 </q-item-section>
-              </q-item>
+              </q-item> -->
 
               <q-item
                 active-class="tab-active"
@@ -258,7 +278,7 @@
                 </q-item-section>
 
                 <q-item-section>
-                  My Profile
+                  Mi Perfil
                 </q-item-section>
               </q-item>
             </q-list>
@@ -292,7 +312,10 @@
 export default {
   data() {
     return {
-      left: false
+      left: false,
+      options: [
+        'Purpleshop', 'Tienda2', 'Tienda3', 'Tienda4', 'Tienda5'
+      ]
     };
   },
   methods: {
@@ -314,10 +337,12 @@ export default {
 
 .drawer_normal {
   background-color: rgba(1, 1, 1, 0.75);
+  background-color: #FFFFFF;
 }
 
 .drawer_dark {
   background-color: #010101f2;
+  background-color: #1D1D1D;
 }
 
 .navigation-item {
@@ -325,7 +350,8 @@ export default {
 }
 
 .tab-active {
-  background-color: green;
+  /*background-color: green;*/
+  background-color:#E9C027;
 }
 
 body {
@@ -333,14 +359,22 @@ body {
 }
 
 .header_normal {
-  background: linear-gradient(
+/*   background: linear-gradient(
     145deg,
     rgb(32, 106, 80) 15%,
     rgb(21, 57, 102) 70%
-  );
+  ); */
+  background-color:  #000;
+/*   color: #000; */
 }
 
+
 .header_dark {
-  background: linear-gradient(145deg, rgb(61, 14, 42) 15%, rgb(14, 43, 78) 70%);
+/*   background: linear-gradient(145deg, rgb(61, 14, 42) 15%, rgb(14, 43, 78) 70%); */
+  background: #1D1D1D;
+}
+
+header .q-toolbar__title {
+    color:#EBC61F;
 }
 </style>

@@ -20,7 +20,7 @@
             class="q-mr-xs"
           />
 
-          <q-input outlined dense debounce="300" v-model="filter" placeholder="Search">
+          <q-input outlined dense debounce="300" v-model="filter" placeholder="Buscar">
             <template v-slot:append>
               <q-icon name="search"/>
             </template>
@@ -55,14 +55,10 @@
             >{{mode==='grid' ? 'List' : 'Grid'}}
             </q-tooltip>
           </q-btn>
-
-          <q-btn
-            color="primary"
-            icon-right="archive"
-            label="Export to csv"
-            no-caps
-            @click="exportTable"
-          />
+          <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
         </template>
         <template v-slot:body-cell-status="props">
           <q-td :props="props">
@@ -200,171 +196,204 @@
                     {
                         name: "invoice_id",
                         align: "left",
-                        label: "#",
+                        label: "ID",
                         field: "invoice_id",
+                        sortable: true
+                    },
+                    {
+                        name: "reference",
+                        align: "left",
+                        label: "Referencia",
+                        field: "reference",
                         sortable: true
                     },
                     {
                         name: "account",
                         required: true,
-                        label: "Account",
+                        label: "Artículo",
                         align: "left",
                         field: "account",
                         sortable: true
                     },
                     {
+                        name: "client",
+                        required: true,
+                        label: "Cliente",
+                        align: "left",
+                        field: "client",
+                        sortable: true
+                    },
+                    {
                         name: "amount",
                         align: "left",
-                        label: "Amount",
+                        label: "Total",
                         field: "amount",
                         sortable: true
                     },
                     {
                         name: "invoice_date",
                         align: "left",
-                        label: "Invoice Date",
+                        label: "Fecha de factura",
                         field: "invoice_date",
-                        sortable: true
-                    },
-                    {
-                        name: "due_date",
-                        align: "left",
-                        label: "Due Date",
-                        field: "due_date",
                         sortable: true
                     },
                     {
                         name: "invoice_type",
                         align: "left",
-                        label: "Invoice Type",
+                        label: "Forma de pago",
                         field: "invoice_type",
                         sortable: true
                     },
                     {
                         name: "status",
                         align: "left",
-                        label: "Status",
+                        label: "Estado",
                         field: "status",
                         sortable: true
                     }
                 ],
                 data: [
                     {
-                        invoice_id: "INV 002",
-                        account: "Kiley Ibbotson",
-                        amount: "$ 1900",
-                        invoice_type: "Onetime",
-                        status: "Active",
+                        invoice_id: "C001",
+                        reference:"UPKNQIRQL",
+                        account: "Nike Air Force One Blancas",
+                        client:"Cliente1",
+                        amount: "67,05",
+                        invoice_type: "Tarjeta Redsys",
+                        status: "Pago aceptadoe",
                         invoice_date: "09-02-2019",
-                        due_date: "10-02-2019"
                     },
                     {
-                        invoice_id: "INV 003",
-                        account: "Leslie Tecklenburg",
-                        amount: "$ 1200",
-                        invoice_type: "Onetime",
-                        status: "Active",
+                        invoice_id: "C002",
+                        reference:"UPKNQIRQL",
+                        account: "Dr. Martens Altas Plataforma Negras",
+                        client:"Cliente1",
+                        amount: "87,05€",
+                        invoice_type: "Tarjeta Redsys",
+                        status: "Últmo recordatorio de pago",
                         invoice_date: "03-25-2019",
-                        due_date: "04-25-2019"
+
                     },
                     {
-                        invoice_id: "INV 004",
-                        account: "Lia Whitledge",
-                        amount: "$ 1550",
-                        invoice_type: "Onetime",
+                        invoice_id: "C003",
+                        reference:"UPKNQIRQL",
+                        account: "Converse All Star Plataforma Altas Blancas",
+                        client:"Cliente1",
+                        amount: "65,16€",
+                        invoice_type: "Tarjeta Redsys",
                         status: "Active",
                         invoice_date: "03-18-2019",
-                        due_date: "04-18-2019"
+
                     },
                     {
-                        invoice_id: "INV 005",
-                        account: "Sam Wileman",
-                        amount: "$ 1800",
-                        invoice_type: "Onetime",
+                        invoice_id: "C004",
+                        reference:"UPKNQIRQL",
+                        account: "Nike Air Force One Negras",
+                        client:"Cliente1",
+                        amount: "67,05€",
+                        invoice_type: "Tarjeta Redsys",
                         status: "Inactive",
                         invoice_date: "04-09-2019",
-                        due_date: "05-09-2019"
+
                     },
                     {
-                        invoice_id: "INV 006",
-                        account: "Edgar Colmer",
-                        amount: "$ 1000",
-                        invoice_type: "Onetime",
+                        invoice_id: "C005",
+                        reference:"UPKNQIRQL",
+                        account: "Converse All Star Altas De Plataforma Negras",
+                        client:"Cliente1",
+                        amount: "65,16€",
+                        invoice_type: "Tarjeta Redsys",
                         status: "Active",
                         invoice_date: "09-03-2019",
-                        due_date: "10-03-2019"
+
                     },
                     {
-                        invoice_id: "INV 007",
-                        account: "Kaiden Rozelle",
-                        amount: "$ 1200",
-                        invoice_type: "Onetime",
+                        invoice_id: "C006",
+                        reference:"UPKNQIRQL",
+                        account: "Nike Air Force One Blancas Altas",
+                        client:"Cliente1",
+                        amount: "76,55€",
+                        invoice_type: "Tarjeta Redsys",
                         status: "Active",
                         invoice_date: "01-12-2019",
-                        due_date: "02-12-2019"
+
                     },
                     {
-                        invoice_id: "INV 008",
-                        account: "Leslie Stopher",
-                        amount: "$ 1500",
-                        invoice_type: "Onetime",
+                        invoice_id: "C007",
+                        reference:"UPKNQIRQL",
+                        account: "Converse Run Star Hike High Top Negras",
+                        client:"Cliente1",
+                        amount: "64,05€",
+                        invoice_type: "Tarjeta Redsys",
                         status: "Active",
                         invoice_date: "04-15-2019",
-                        due_date: "05-15-2019"
+
                     },
                     {
-                        invoice_id: "INV 009",
-                        account: "Miguel Subasic",
-                        amount: "$ 2000",
-                        invoice_type: "Onetime",
+                        invoice_id: "C008",
+                        reference:"UPKNQIRQL",
+                        account: "CONVERSE ALL STAR CUERO PLATAFORMA ALTAS NEGRAS",
+                        client:"Cliente1",
+                        amount: "100€",
+                        invoice_type: "Tarjeta Redsys",
                         status: "Active",
                         invoice_date: "11-09-2019",
-                        due_date: "12-09-2019"
+
                     },
                     {
-                        invoice_id: "INV 010",
-                        account: "Reese Vandygriff",
-                        amount: "$ 1450",
-                        invoice_type: "Onetime",
+                        invoice_id: "C009",
+                        reference:"UPKNQIRQL",
+                        account: "CONVERSE CHUCK TAYLOR MOVE NEGRAS",
+                        client:"Cliente1",
+                        amount: "105€",
+                        invoice_type: "Tarjeta Redsys",
                         status: "Inactive",
                         invoice_date: "01-01-2019",
-                        due_date: "02-01-2019"
+
                     },
                     {
-                        invoice_id: "INV 011",
-                        account: "Griffin Troglen",
-                        amount: "$ 1200",
-                        invoice_type: "Onetime",
+                        invoice_id: "C010",
+                        reference:"UPKNQIRQL",
+                        account: "CONVERSE RUN STAR HIKE HIGH LOW TOP BLANCAS",
+                        client:"Cliente1",
+                        amount: "105€",
+                        invoice_type: "Tarjeta Redsys",
                         status: "Active",
                         invoice_date: "04-12-2019",
-                        due_date: "06-12-2019"
+
                     },
                     {
-                        invoice_id: "INV 012",
-                        account: "Zachary Wehrley",
-                        amount: "$ 1400",
-                        invoice_type: "Onetime",
+                        invoice_id: "C011",
+                        reference:"UPKNQIRQL",
+                        account: "CONVERSE ALL STAR ROJAS BAJAS",
+                        client:"Cliente1",
+                        amount: "70€",
+                        invoice_type: "Tarjeta Redsys",
                         status: "Active",
                         invoice_date: "10-09-2019",
-                        due_date: "11-09-2019"
+
                     },
                     {
-                        invoice_id: "INV 013",
-                        account: "Kyle Wahlert",
-                        amount: "$ 1200",
-                        invoice_type: "Onetime",
+                        invoice_id: "C012",
+                        reference:"UPKNQIRQL",
+                        account: "CONVERSE CHUCK TAYLOR MOVE BEIGE",
+                        client:"Cliente1",
+                        amount: "115€",
+                        invoice_type: "Tarjeta Redsys",
                         status: "Active",
                         invoice_date: "01-02-2019",
-                        due_date: "02-02-2019"
+
                     },
                     {
-                        invoice_id: "INV 014",
-                        account: "John Subasic",
-                        amount: "$ 1234",
-                        invoice_type: "Onetime",
+                        invoice_id: "C014",
+                        reference:"UPKNQIRQL",
+                        account: "CONVERSE ALL STAR NEGRAS ENTERAS BAJAS",
+                        client:"Cliente1",
+                        amount: "70€",
+                        invoice_type: "Tarjeta Redsys",
                         status: "Active",
                         invoice_date: "07-06-2019",
-                        due_date: "08-06-2019"
+
                     }
                 ],
                 pagination: {

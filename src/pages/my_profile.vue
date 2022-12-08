@@ -5,18 +5,17 @@
         <q-card class="my-card" flat bordered>
           <q-card-section horizontal>
             <q-card-section class="q-pt-xs">
-              <div class="text-overline">US Region</div>
-              <div class="text-h5 q-mt-sm q-mb-xs">Mayank Patel</div>
+              <div class="text-overline">Madrid</div>
+              <div class="text-h5 q-mt-sm q-mb-xs">Alejandro Castillo</div>
               <div class="text-caption text-grey">
-                Sales and Marketing Executive | Graduate and past committee | Keynote speaker on Selling and Recruiting
-                Topics
+                Administrador
               </div>
             </q-card-section>
 
             <q-card-section class="col-5 flex flex-center">
               <q-img
                 class="rounded-borders"
-                src="https://cdn.quasar.dev/img/boy-avatar.png"
+                src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png"
               />
             </q-card-section>
           </q-card-section>
@@ -24,7 +23,7 @@
           <q-separator/>
 
           <q-card-section>
-            Assessing clients needs and present suitable promoted products. Liaising with and persuading targeted doctors to prescribe our products utilizing effective sales skills.
+           Administrador de todas las tiendas
           </q-card-section>
         </q-card>
       </div>
@@ -84,11 +83,11 @@
         data() {
             return {
                 user: {
-                    first_name: 'Mayank',
-                    last_name: 'Patel',
-                    age: 30,
-                    email: 'm******@****.com',
-                    phone: '98******23'
+                    first_name: 'Alejandro',
+                    last_name: 'Castillo',
+                    age: '?',
+                    email: 'aca******@*****.com',
+                    phone: '68******03'
                 },
             }
         },

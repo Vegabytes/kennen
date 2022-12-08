@@ -1,72 +1,36 @@
 <template>
   <q-page>
-    <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-        <q-card>
-          <q-card-section :class="$q.dark.isActive?'blue_dark':'bg-blue-8'" class="text-white">
-            <div class="row">
-              <div class="col-10">
-                <div class="text-h6">Sales</div>
-                <div class="text-h5">160</div>
-              </div>
-              <div class="col-2">
-                <q-icon size="62px" name="trending_up"/>
-              </div>
-            </div>
-          </q-card-section>
-        </q-card>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-        <q-card>
-          <q-card-section :class="$q.dark.isActive?'green_dark':'bg-green-8'" class="text-white">
-            <div class="row">
-              <div class="col-10">
-                <div class="text-h6">Goals</div>
-                <div class="text-h5">140</div>
-              </div>
-              <div class="col-2">
-                <q-icon size="62px" name="far fa-dot-circle"/>
-              </div>
-            </div>
-          </q-card-section>
-        </q-card>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-        <q-card>
-          <q-card-section :class="$q.dark.isActive?'orange_dark':'bg-orange-9'" class="text-white">
-            <div class="row">
-              <div class="col-10">
-                <div class="text-h6">% Change</div>
-                <div class="text-h5">
-                  <q-icon name="arrow_downward"/>
-                  2%
-                </div>
-              </div>
-              <div class="col-2">
-                <q-icon size="62px" name="compare_arrows"/>
-              </div>
-            </div>
-          </q-card-section>
-        </q-card>
-      </div>
-    </div>
     <div>
       <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <q-card flat bordered class="">
             <q-card-section class="row">
-              <div class="text-h6 col-12">Sales vs Goals
-                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('bar')"
-                       :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
-                </q-btn>
+              <div class="text-h6 col-12">Purpleshop
               </div>
+              <div class="text-subtitle2 text-uppercase">Febrero 2023</div>
             </q-card-section>
 
             <q-separator inset></q-separator>
 
             <q-card-section>
-              <IEcharts :option="barOptions" ref="bar" :resizable="true" style="height:220px"/>
+              <q-table
+            title="Últimos pedidos"
+            :data="data"
+            :hide-header="mode === 'grid'"
+            :columns="columns"
+            row-key="name"
+            :grid="mode==='grid'"
+            :filter="filter"
+            :pagination.sync="pagination"
+            :class="$q.dark.isActive?'text-white':'text-grey-8'"
+          >
+            <template v-slot:top-right="props">
+              <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
+            </template>
+          </q-table>
             </q-card-section>
           </q-card>
         </div>
@@ -74,18 +38,33 @@
 
           <q-card flat bordered class="">
             <q-card-section class="row">
-              <div class="text-h6 col-12">Market Share & Growth
-                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('line')"
-                       :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
-                </q-btn>
+              <div class="text-h6 col-12">FlowZapas
               </div>
+              <div class="text-subtitle2 text-uppercase">Febrero 2023</div>
             </q-card-section>
 
             <q-separator inset></q-separator>
 
             <q-card-section>
-              <IEcharts ref="line" :option="lineChartOption" :resizable="true" style="height:220px"/>
+<!--               <IEcharts ref="line" :option="lineChartOption" :resizable="true" style="height:220px"/> -->
+<q-table
+            title="Últimos pedidos"
+            :data="data"
+            :hide-header="mode === 'grid'"
+            :columns="columns"
+            row-key="name"
+            :grid="mode==='grid'"
+            :filter="filter"
+            :pagination.sync="pagination"
+            :class="$q.dark.isActive?'text-white':'text-grey-8'"
+          >
+            <template v-slot:top-right="props">
+              <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
+            </template>
+          </q-table>
             </q-card-section>
           </q-card>
         </div>
@@ -93,19 +72,33 @@
 
           <q-card flat bordered class="">
             <q-card-section class="row">
-              <div class="text-h6 col-12">Sales vs Quota
-                <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('gauge')"
-                       :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
-                </q-btn>
+              <div class="text-h6 col-12">MundoAllStar
               </div>
-
+              <div class="text-subtitle2 text-uppercase">Febrero 2023</div>
             </q-card-section>
 
             <q-separator inset></q-separator>
 
             <q-card-section>
-              <IEcharts :option="gaugeOptions" ref="gauge" :resizable="true" style="height:220px"/>
+ <!--              <IEcharts :option="gaugeOptions" ref="gauge" :resizable="true" style="height:220px"/> -->
+ <q-table
+            title="Últimos pedidos"
+            :data="data"
+            :hide-header="mode === 'grid'"
+            :columns="columns"
+            row-key="name"
+            :grid="mode==='grid'"
+            :filter="filter"
+            :pagination.sync="pagination"
+            :class="$q.dark.isActive?'text-white':'text-grey-8'"
+          >
+            <template v-slot:top-right="props">
+              <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
+            </template>
+          </q-table>
             </q-card-section>
           </q-card>
         </div>
@@ -115,36 +108,66 @@
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section>
-            <div class="text-h6">Key Competitors
-              <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('pie')"
-                     :color="!$q.dark.isActive? 'grey-8':'white'">
-                <q-tooltip>Download</q-tooltip>
-              </q-btn>
+            <div class="text-h6">ZapasFlash
             </div>
+            <div class="text-subtitle2 text-uppercase">Febrero 2023</div>
           </q-card-section>
 
           <q-separator inset></q-separator>
 
           <q-card-section>
-            <IEcharts ref="pie" :option="pieOptions" :resizable="true" style="height:270px"/>
+<!--             <IEcharts ref="pie" :option="pieOptions" :resizable="true" style="height:270px"/> -->
+<q-table
+            title="Últimos pedidos"
+            :data="data"
+            :hide-header="mode === 'grid'"
+            :columns="columns"
+            row-key="name"
+            :grid="mode==='grid'"
+            :filter="filter"
+            :pagination.sync="pagination"
+            :class="$q.dark.isActive?'text-white':'text-grey-8'"
+          >
+            <template v-slot:top-right="props">
+              <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
+            </template>
+          </q-table>
           </q-card-section>
         </q-card>
       </div>
       <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section>
-            <div class="text-h6">Sales Pipeline by Sales Rep
-              <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('stack_bar')"
-                     :color="!$q.dark.isActive? 'grey-8':'white'">
-                <q-tooltip>Download</q-tooltip>
-              </q-btn>
+            <div class="text-h6">ZapasFlash
             </div>
+            <div class="text-subtitle2 text-uppercase">Febrero 2023</div>
           </q-card-section>
 
           <q-separator inset></q-separator>
 
           <q-card-section>
-            <IEcharts ref="stack_bar" :option="stackedBarOptions" :resizable="true" style="height:270px"/>
+            <!-- <IEcharts ref="stack_bar" :option="stackedBarOptions" :resizable="true" style="height:270px"/> -->
+            <q-table
+            title="Últimos pedidos"
+            :data="data"
+            :hide-header="mode === 'grid'"
+            :columns="columns"
+            row-key="name"
+            :grid="mode==='grid'"
+            :filter="filter"
+            :pagination.sync="pagination"
+            :class="$q.dark.isActive?'text-white':'text-grey-8'"
+          >
+            <template v-slot:top-right="props">
+              <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
+            </template>
+          </q-table>
           </q-card-section>
         </q-card>
       </div>
@@ -153,7 +176,7 @@
       <div class="col-12">
         <q-card flat bordered class="bg-white">
           <q-table
-            title="All Activities"
+            title="Todoos ls pedidos"
             :data="data"
             :hide-header="mode === 'grid'"
             :columns="columns"
@@ -199,7 +222,6 @@
                 >{{mode==='grid' ? 'List' : 'Grid'}}
                 </q-tooltip>
               </q-btn>
-
               <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
                   <q-tooltip>Download</q-tooltip>
@@ -263,60 +285,88 @@
                     ]
                 },
                 columns: [
-                    {name: 'activity_id', align: 'left', label: 'Activity ID', field: 'activity_id', sortable: true},
+                    {name: 'activity_id', align: 'left', label: 'Id Pedido', field: 'activity_id', sortable: true},
                     {
                         name: 'desc',
                         required: true,
-                        label: 'Activity Name',
+                        label: 'Descripción',
                         align: 'left',
                         field: row => row.name,
                         sortable: true
                     },
-                    {name: 'regarding', align: 'left', label: 'Regarding', field: 'regarding', sortable: true},
-                    {name: 'owner', align: 'left', label: 'Owner', field: 'owner', sortable: true},
+                    {name: 'regarding', align: 'left', label: 'Estado', field: 'regarding', sortable: true},
+/*                     {name: 'owner', align: 'left', label: 'Owner', field: 'owner', sortable: true}, */
                     {
                         name: 'creation_date',
                         align: 'left',
-                        label: 'Creation Date',
+                        label: 'Fecha',
                         field: 'creation_date',
+                        sortable: true
+                    },
+                    {
+                        name: 'shop',
+                        align: 'left',
+                        label: 'Tienda',
+                        field: 'shop',
                         sortable: true
                     }
                 ],
                 data: [
                     {
                         activity_id: "C001",
-                        name: 'Advanced communications',
-                        regarding: 'Presentation',
+                        name: 'Nike Air Force One Blancas',
+                        regarding: 'Pago aceptado',
                         owner: 'John',
-                        creation_date: '12-09-2019'
+                        creation_date: '08-12-2022',
+                        shop:'FlowZapas'
                     },
                     {
                         activity_id: "C002",
-                        name: 'New drug discussion',
-                        regarding: 'Meeting',
+                        name: 'Dr. Martens Altas Plataforma Negras',
+                        regarding: 'Cancelado',
                         owner: 'John',
-                        creation_date: '09-02-2019'
+                        creation_date: '08-12-2022',
+                        shop:'Sneakersshops'
                     },
                     {
                         activity_id: "C003",
-                        name: 'Universal services discussion',
-                        regarding: 'Meeting',
+                        name: 'Converse All Star Plataforma Altas Blancas',
+                        regarding: 'Entregado',
                         owner: 'John',
-                        creation_date: '03-25-2019'
+                        creation_date: '08-12-2022',
+                        shop:'MundoAllStar'
                     },
                     {
                         activity_id: "C004",
-                        name: 'Add on business',
-                        regarding: 'Business',
+                        name: 'Nike Air Force One Negras',
+                        regarding: 'Error en el cobro',
                         owner: 'John',
-                        creation_date: '03-18-2019'
+                        creation_date: '08-12-2022',
+                        shop:'Sneakersshops'
                     },
                     {
                         activity_id: "C005",
-                        name: 'Promotional Activity',
-                        regarding: 'Personal',
+                        name: 'Converse All Star Altas De Plataforma Negras',
+                        regarding: 'Pendiente de cobro',
                         owner: 'John',
-                        creation_date: '04-09-2019'
+                        creation_date: '08-12-2022',
+                        shop:'ZapasFlash'
+                    },
+                    {
+                        activity_id: "C006",
+                        name: 'Nike Air Force One Blancas Altas',
+                        regarding: 'Enviado',
+                        owner: 'John',
+                        creation_date: '08-12-2022',
+                        shop:'Sneakersshops'
+                    },
+                    {
+                        activity_id: "C007",
+                        name: 'Converse Run Star Hike High Top Negras',
+                        regarding: 'Preparación',
+                        owner: 'John',
+                        creation_date: '08-12-2022',
+                        shop:'ZapasFlash'
                     },
                 ],
                 pagination: {

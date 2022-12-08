@@ -12,7 +12,7 @@
         :pagination.sync="pagination"
       >
         <template v-slot:top-right="props">
-          <q-input outlined dense debounce="300" v-model="filter" placeholder="Search">
+          <q-input outlined dense debounce="300" v-model="filter" placeholder="Buscar">
             <template v-slot:append>
               <q-icon name="search"/>
             </template>
@@ -48,13 +48,10 @@
             </q-tooltip>
           </q-btn>
 
-          <q-btn
-            color="primary"
-            icon-right="archive"
-            label="Export to csv"
-            no-caps
-            @click="exportTable"
-          />
+          <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                       :color="!$q.dark.isActive? 'grey-8':'white'">
+                  <q-tooltip>Download</q-tooltip>
+                </q-btn>
         </template>
         <template v-slot:body-cell-detail="props">
           <q-td :props="props">
