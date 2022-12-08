@@ -56,21 +56,21 @@
                   @click="loginNotify"
                 />
 
-                <a
+<!--                 <a
                   style="font-size: 30px;"
                   class="float-right"
                   href="https://github.com/sponsors/mayank091193"
                   target="_blank"
                   title="Donate"
                   ><i class="fas fa-heart" style="color: #eb5daa"></i
-                ></a>
+                ></a> -->
               </div>
             </q-form>
           </q-card-section>
         </q-card>
       </q-page>
-      <q-banner inline-actions rounded style="background-color:#5dcf8a" class="z-max shadow-10 q-ma-md absolute absolute-bottom text-white">
-        Looking for beautiful premium Quasar CRM admin template for Vue 3? Please drop me an email. Buy only at <b>$49</b>!
+<!--       <q-banner inline-actions rounded style="background-color:#5dcf8a" class="z-max shadow-10 q-ma-md absolute absolute-bottom text-white">
+        Looking for beautiful premium Quasar CRM admin template for Vue 3? Please drop me an email. Buy only at <b>$49</b>! -->
       <template v-slot:action>
         <q-btn target="_blank" type="a" href="https://next-quasar-admin-crm.netlify.com/" flat style="background-color:purple" class="text-capitalize q-mr-md" label="Live Demo"></q-btn>
         <q-btn type="a" href="mailto:mayank091193@gmail.com" flat style="background-color:#172b4d" class="text-capitalize" label="Email me"></q-btn>
