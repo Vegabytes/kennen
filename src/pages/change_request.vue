@@ -150,7 +150,7 @@
                     {
                         name: "desc",
                         required: true,
-                        label: "Customer Name",
+                        label: "Nombre cliente",
                         align: "left",
                         field: row => row.name,
                         sortable: true
@@ -165,7 +165,7 @@
                     {
                         name: "status",
                         align: "left",
-                        label: "Status",
+                        label: "Ciudad",
                         field: "status",
                         sortable: true
                     },

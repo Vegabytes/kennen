@@ -20,7 +20,7 @@
             $q.platform.is.mobile ? { width: '80%' } : { width: '30%' }
           "
         >
-          <q-img src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png"></q-img>
+        <q-img src="/statics/images/pharmacy.jpg"></q-img>
           <q-card-section>
             <q-avatar
               size="74px"
