@@ -20,18 +20,18 @@
             $q.platform.is.mobile ? { width: '80%' } : { width: '30%' }
           "
         >
-          <q-img src="/statics/images/pharmacy.jpg"></q-img>
+          <q-img src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png"></q-img>
           <q-card-section>
             <q-avatar
               size="74px"
               class="absolute"
               style="top: 0;right: 25px;transform: translateY(-50%);"
             >
-              <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+              <img src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png" />
             </q-avatar>
             <div class="row no-wrap items-center">
               <div class="col text-h6 ellipsis">
-                Log in to Dashboard
+                Accede al dashboard
               </div>
             </div>
           </q-card-section>
@@ -52,7 +52,7 @@
                   label="Login"
                   to="/dashboard"
                   type="button"
-                  color="primary"
+                  color="accent"
                   @click="loginNotify"
                 />
 

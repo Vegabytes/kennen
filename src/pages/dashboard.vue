@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
+    <div class="row q-col-gutter-lg q-ma-xs q-mr-sm">
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card>
           <q-card-section :class="$q.dark.isActive?'blue_dark':'bg-blue-8'" class="text-white">
@@ -51,7 +51,7 @@
       </div>
     </div>
     <div>
-      <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
+      <div class="row q-col-gutter-lg q-ma-xs q-mr-sm">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <q-card flat bordered class="">
             <q-card-section class="row">
@@ -111,7 +111,7 @@
         </div>
       </div>
     </div>
-    <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
+    <div class="row q-col-gutter-lg q-ma-xs q-mr-sm">
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section>
@@ -149,7 +149,7 @@
         </q-card>
       </div>
     </div>
-    <div class="row q-col-gutter-sm q-ma-xs">
+    <div class="row q-col-gutter-lg q-ma-xs">
       <div class="col-12">
         <q-card flat bordered class="bg-white">
           <q-table

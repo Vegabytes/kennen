@@ -60,7 +60,6 @@
         <div style="height: calc(100% - 117px);padding:10px;">
           <q-toolbar>
             <q-avatar>
-<!--               <img src="https://cdn.quasar.dev/img/boy-avatar.png" /> -->
               <img src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png" />
 
             </q-avatar>
@@ -83,11 +82,11 @@
                 </q-item-section>
 
                 <q-item-section>
-                 General
+                Dashboard
                 </q-item-section>
               </q-item>
 
-              <q-item
+             <q-item
                 active-class="tab-active"
                 to="/dashboard"
                 exact
@@ -100,10 +99,10 @@
                 </q-item-section>
 
                 <q-item-section>
-                  Dashboard v1
+                  Detalle tienda
                 </q-item-section>
               </q-item>
-
+<!--
               <q-item
                 active-class="tab-active"
                 to="/dashboard_v2"
@@ -121,7 +120,7 @@
                 </q-item-section>
               </q-item>
 
-<!--               <q-item
+           <q-item
                 active-class="tab-active"
                 to="/dashboard_v3"
                 exact
@@ -136,23 +135,9 @@
                 <q-item-section>
                   Dashboard v3
                 </q-item-section>
-              </q-item> -->
-<!--
-              <q-item
-                active-class="tab-active"
-                to="/customer_management"
-                class="q-ma-sm navigation-item"
-                clickable
-                v-ripple
-              >
-                <q-item-section avatar>
-                  <q-icon name="star" />
-                </q-item-section>
+              </q-item>
+ -->
 
-                <q-item-section>
-                  Customer Management
-                </q-item-section>
-              </q-item> -->
 
 <!--               <q-item
                 active-class="tab-active"
@@ -186,7 +171,7 @@
                 </q-item-section>
               </q-item>
 
-<!--               <q-item
+   <!--          <q-item
                 active-class="tab-active"
                 to="/quotes"
                 class="q-ma-sm navigation-item"
@@ -202,7 +187,7 @@
                 </q-item-section>
               </q-item> -->
 
-<!--               <q-item
+<!--                <q-item
                 active-class="tab-active"
                 to="/transactions"
                 class="q-ma-sm navigation-item"
@@ -218,7 +203,7 @@
                 </q-item-section>
               </q-item> -->
 
-<!--               <q-item
+            <q-item
                 active-class="tab-active"
                 to="/employee_salary_list"
                 class="q-ma-sm navigation-item"
@@ -230,9 +215,9 @@
                 </q-item-section>
 
                 <q-item-section>
-                  Employee Salary List
+                  Usuarios
                 </q-item-section>
-              </q-item> -->
+              </q-item>
 
               <q-item
                 active-class="tab-active"
@@ -250,7 +235,7 @@
                 </q-item-section>
               </q-item>
 
-<!--               <q-item
+              <q-item
                 active-class="tab-active"
                 to="/department"
                 class="q-ma-sm navigation-item"
@@ -262,9 +247,24 @@
                 </q-item-section>
 
                 <q-item-section>
-                  Department
+                  Contabilidad
                 </q-item-section>
-              </q-item> -->
+              </q-item>
+              <q-item
+                active-class="tab-active"
+                to="/customer_management"
+                class="q-ma-sm navigation-item"
+                clickable
+                v-ripple
+              >
+                <q-item-section avatar>
+                  <q-icon name="star" />
+                </q-item-section>
+
+                <q-item-section>
+                  Clientes
+                </q-item-section>
+              </q-item>
 
               <q-item
                 active-class="tab-active"
@@ -298,12 +298,12 @@
         </div>
       </q-page>
 <!--       <q-banner inline-actions rounded style="background-color:#5dcf8a" class="z-max shadow-10 q-ma-md absolute absolute-bottom text-white">
-      Looking for beautiful premium Quasar CRM admin template for Vue 3? Please drop me an email. Buy only at <b>$49</b>! -->
+      Looking for beautiful premium Quasar CRM admin template for Vue 3? Please drop me an email. Buy only at <b>$49</b>!
       <template v-slot:action>
         <q-btn target="_blank" type="a" href="https://next-quasar-admin-crm.netlify.com/" flat style="background-color:purple" class="text-capitalize q-mr-md" label="Live Demo"></q-btn>
         <q-btn type="a" href="mailto:mayank091193@gmail.com" flat style="background-color:#172b4d" class="text-capitalize" label="Email me"></q-btn>
       </template>
-    </q-banner>
+    </q-banner>-->
     </q-page-container>
   </q-layout>
 </template>
@@ -355,7 +355,7 @@ export default {
 }
 
 body {
-  background: #f1f1f1 !important;
+  background: #F6F6F6 !important;
 }
 
 .header_normal {
@@ -372,6 +372,11 @@ body {
 .header_dark {
 /*   background: linear-gradient(145deg, rgb(61, 14, 42) 15%, rgb(14, 43, 78) 70%); */
   background: #1D1D1D;
+}
+
+.q-item__section--avatar {
+    color: inherit;
+    min-width: 0;
 }
 
 header .q-toolbar__title {

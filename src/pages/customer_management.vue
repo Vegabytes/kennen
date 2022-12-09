@@ -151,7 +151,7 @@
                     {
                         name: "name",
                         required: true,
-                        label: "Customer Name",
+                        label: "Nombre cliente",
                         align: "left",
                         field: "name",
                         sortable: true
@@ -159,21 +159,21 @@
                     {
                         name: "city",
                         align: "left",
-                        label: "City",
+                        label: "Dirección",
                         field: "city",
                         sortable: true
                     },
                     {
                         name: "state",
                         align: "left",
-                        label: "State",
+                        label: "Código postal",
                         field: "state",
                         sortable: true
                     },
                     {
                         name: "last_call",
                         align: "left",
-                        label: "Last Call",
+                        label: "Fecha alta",
                         field: "last_call",
                         sortable: true
                     }

@@ -1,7 +1,7 @@
 <template>
   <q-page class="q-pt-xs">
     <div class="q-ma-md">
-      <div class="row q-mb-md q-col-gutter-md">
+      <div class="row q-mb-md q-col-gutter-lg">
         <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12 box_1">
           <q-card class="shadow">
             <q-card-section class="theme_color q-pa-sm text-white">
@@ -95,7 +95,7 @@
           </q-card>
         </div>
       </div>
-      <div class="row q-col-gutter-md">
+      <div class="row q-col-gutter-lg">
         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
           <q-card flat bordered class="shadow theme_color q-pa-none q-ma-none">
             <q-card-section class="row">
@@ -135,7 +135,7 @@
           </q-card>
         </div>
       </div>
-      <div class="row q-col-gutter-md q-pt-md">
+      <div class="row q-col-gutter-lg q-pt-md">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <q-card flat bordered class="shadow theme_color q-pa-none q-ma-none">
             <q-card-section>
@@ -174,7 +174,7 @@
           </q-card>
         </div>
       </div>
-      <div class="row q-col-gutter-md q-pt-md">
+      <div class="row q-col-gutter-lg q-pt-md">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <q-card flat bordered class="shadow theme_color">
             <q-table

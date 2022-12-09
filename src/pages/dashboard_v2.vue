@@ -91,7 +91,7 @@
         </div>
       </div>
 
-      <div class="row q-col-gutter-md">
+      <div class="row q-col-gutter-lg">
         <div class="col-lg-7 col-md-7 col-sm-12 col-xs-12">
           <q-card flat bordered class="shadow q-pa-none q-ma-none">
             <q-card-section class="row">
@@ -129,7 +129,7 @@
           </q-card>
         </div>
       </div>
-      <div class="row q-col-gutter-md q-pt-md">
+      <div class="row q-col-gutter-lg q-pt-md">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
           <q-card flat bordered class="shadow q-pa-none q-ma-none">
             <q-card-section>
@@ -167,7 +167,7 @@
           </q-card>
         </div>
       </div>
-      <div class="row q-col-gutter-md q-pt-md">
+      <div class="row q-col-gutter-lg q-pt-md">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <q-card flat bordered class="shadow">
             <q-table

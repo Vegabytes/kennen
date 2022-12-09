@@ -89,7 +89,7 @@
           <q-card-section class="col-5 flex flex-center">
             <q-img
               class="rounded-borders"
-              src="https://cdn.quasar.dev/img/boy-avatar.png"
+              src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png"
             />
           </q-card-section>
         </q-card-section>
@@ -130,51 +130,36 @@
                     {
                         name: "serial_no",
                         align: "left",
-                        label: "Serial No.",
+                        label: "Identificador",
                         field: "serial_no",
-                        sortable: true
-                    },
-                    {
-                        name: "emp_id",
-                        required: true,
-                        label: "Employee Id",
-                        align: "left",
-                        field: "emp_id",
                         sortable: true
                     },
                     {
                         name: "name",
                         align: "left",
-                        label: "Employee Name",
+                        label: "Nombre",
                         field: "name",
                         sortable: true
                     },
                     {
-                        name: "salary_type",
+                        name: "email",
                         align: "left",
-                        label: "Salary Type",
-                        field: "salary_type",
+                        label: "Email",
+                        field: "email",
                         sortable: true
                     },
                     {
-                        name: "basic_salary",
+                        name: "profile",
                         align: "left",
-                        label: "Basic salary",
-                        field: "basic_salary",
+                        label: "Perfil",
+                        field: "profile",
                         sortable: true
                     },
                     {
-                        name: "overtime",
+                        name: "status",
                         align: "left",
-                        label: "Overtime",
-                        field: "overtime",
-                        sortable: true
-                    },
-                    {
-                        name: "detail",
-                        align: "left",
-                        label: "Detail",
-                        field: "detail",
+                        label: "Estado",
+                        field: "status",
                         sortable: true
                     },
                     {
@@ -188,44 +173,18 @@
                 data: [
                     {
                         serial_no: "01",
-                        emp_id: "Emp 233",
-                        name: "Leslie Tecklenburg",
-                        basic_salary: "$ 4200",
-                        salary_type: "Basic",
-                        overtime: "$ 20",
+                        name: "Batman",
+                        email: "batman@gmailcom",
+                        profile: "SuperAdmin",
+                        status: "Activo",
                     },
                     {
-                        serial_no: "02",
-                        emp_id: "Emp 104",
-                        name: "Lia Whitledge",
-                        basic_salary: "$ 2550",
-                        salary_type: "Basic",
-                        overtime: "$ 40",
+                        serial_no: "01",
+                        name: "Superman",
+                        email: "superman@gmailcom",
+                        profile: "Empleado",
+                        status: "Activo",
                     },
-                    {
-                        serial_no: "03",
-                        emp_id: "Emp 345",
-                        name: "Sam Wileman",
-                        basic_salary: "$ 3800",
-                        salary_type: "Basic",
-                        overtime: "$ 90",
-                    },
-                    {
-                        serial_no: "04",
-                        emp_id: "Emp 345",
-                        name: "Edgar Colmer",
-                        basic_salary: "$ 4000",
-                        salary_type: "Basic",
-                        overtime: "$ 56",
-                    },
-                    {
-                        serial_no: "05",
-                        emp_id: "Emp 895",
-                        name: "Kaiden Rozelle",
-                        basic_salary: "$ 3200",
-                        salary_type: "Basic",
-                        overtime: "$ 23",
-                    }
                 ],
                 pagination: {
                     rowsPerPage: 10
