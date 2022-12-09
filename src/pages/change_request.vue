@@ -72,12 +72,12 @@
     </q-card>
     <q-dialog v-model="new_customer">
       <q-card style="width: 600px; max-width: 60vw;">
-        <q-card-section>
+<!--         <q-card-section>
           <div class="text-h6">
             Add new change request
             <q-btn round flat dense icon="close" class="float-right" color="grey-8" v-close-popup></q-btn>
           </div>
-        </q-card-section>
+        </q-card-section> -->
         <q-separator inset></q-separator>
         <q-card-section class="q-pt-none">
           <q-form class="q-gutter-md">

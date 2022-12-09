@@ -1,11 +1,11 @@
 <template>
   <q-page>
-    <h5 class="q-my-xs q-pt-sm q-ml-md text-black">Department</h5>
+    <h5 class="q-my-xs q-pt-sm q-ml-md text-black">Contabilidad</h5>
     <div class="row q-col-gutter-sm q-ma-xs q-mr-sm">
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section class="row">
-            <div class="text-h6 col-12">Account
+            <div class="text-h6 col-12">Cuentas
             </div>
           </q-card-section>
 
@@ -33,7 +33,7 @@
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section class="row">
-            <div class="text-h6 col-12">Finance
+            <div class="text-h6 col-12">Finanzas
             </div>
           </q-card-section>
 
@@ -61,7 +61,7 @@
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section class="row">
-            <div class="text-h6 col-12">Human Resources
+            <div class="text-h6 col-12">Ingresos
             </div>
           </q-card-section>
 
@@ -89,7 +89,7 @@
       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section class="row">
-            <div class="text-h6 col-12">Information Technology
+            <div class="text-h6 col-12">Gastos
             </div>
           </q-card-section>
 
@@ -126,79 +126,79 @@
                     {
                         name: "serial_no",
                         align: "left",
-                        label: "Serial No.",
+                        label: "Id.",
                         field: "serial_no",
                         sortable: true
                     },
                     {
                         name: "designation",
                         align: "left",
-                        label: "Designation",
+                        label: "Nombre",
                         field: "designation",
                         sortable: true
                     },
                     {
                         name: "action",
                         align: "left",
-                        label: "Action",
+                        label: "Acciones",
                         field: "action",
                         sortable: true
                     }
                 ],
                 finance_data: [
                     {
-                        serial_no: "01",
+                        serial_no: "xxxx-xxxx-xx-xxxxxxxxxx",
                         designation: "Admin",
                     },
                     {
-                        serial_no: "02",
-                        designation: "Staff",
+                      serial_no: "xxxx-xxxx-xx-xxxxxxxxxx",
+                        designation: "Vendedor",
                     },
                     {
-                        serial_no: "03",
+                      serial_no: "xxxx-xxxx-xx-xxxxxxxxxx",
                         designation: "Admin",
                     }
                 ],
                 account_data: [
                     {
-                        serial_no: "01",
-                        designation: "Senior Account",
+                      serial_no: "xxxx-xxxx-xx-xxxxxxxxxx",
+                        designation: "BBVA",
                     },
                     {
-                        serial_no: "02",
-                        designation: "Manager Account",
+                      serial_no: "xxxx-xxxx-xx-xxxxxxxxxx",
+                        designation: "La Caixa",
                     },
                     {
-                        serial_no: "03",
-                        designation: "Manager",
+                      serial_no: "xxxx-xxxx-xx-xxxxxxxxxx",
+                        designation: "Banco Popular",
                     }
                 ],
                 hr_data: [
                     {
                         serial_no: "01",
-                        designation: "Manager",
+                        designation: "Ventas",
                     },
                     {
                         serial_no: "02",
-                        designation: "Department Head",
+                        designation: "Bonificaciones",
                     },
                     {
                         serial_no: "03",
-                        designation: "assistant",
+                        designation: "Colaboraciones",
                     }
                 ],
                 it_data: [
                     {
                         serial_no: "01",
-                        designation: "Software developer",
+                        designation: "Internet",
                     },
                     {
                         serial_no: "02",
-                        designation: "Grapics designer",
+                        designation: "Autónomo",
                     },
                     {
                         serial_no: "03",
-                        designation: "Tester",
+                        designation: "Impuestos",
                     }
                 ],
                 pagination: {

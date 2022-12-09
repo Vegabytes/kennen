@@ -2,7 +2,7 @@
   <q-page class="q-pa-sm">
     <q-card>
       <q-table
-        title="Employee Salary List"
+        title="Usuarios"
         :data="data"
         :hide-header="mode === 'grid'"
         :columns="columns"
@@ -165,7 +165,7 @@
                     {
                         name: "action",
                         align: "left",
-                        label: "Action",
+                        label: "Acciones",
                         field: "action",
                         sortable: true
                     }

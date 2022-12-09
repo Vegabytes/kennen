@@ -154,7 +154,7 @@
                     {
                         name: "action",
                         align: "left",
-                        label: "Action",
+                        label: "Acciones",
                         field: "action",
                         sortable: true
                     }

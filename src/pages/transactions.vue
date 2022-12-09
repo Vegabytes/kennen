@@ -93,7 +93,7 @@
                 <q-btn
                   label="Save"
                   type="submit"
-                  color="primary"
+                  color="yellow"
                   v-close-popup
                 />
               </q-card-actions>

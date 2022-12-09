@@ -13,9 +13,9 @@
           icon="menu"
           class="q-mr-sm"
         />
-                <q-avatar>
+<!--                 <q-avatar>
                 <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
-                </q-avatar>
+                </q-avatar> -->
 
         <q-toolbar-title>Kennen</q-toolbar-title>
         <q-btn
@@ -71,7 +71,7 @@
             <q-list padding>
               <q-item
                 active-class="tab-active"
-                to="/dashboard_v0"
+                to="/dashboard"
                 exact
                 class="q-ma-sm navigation-item"
                 clickable
@@ -86,7 +86,7 @@
                 </q-item-section>
               </q-item>
 
-             <q-item
+<!--              <q-item
                 active-class="tab-active"
                 to="/dashboard"
                 exact
@@ -101,7 +101,7 @@
                 <q-item-section>
                   Detalle tienda
                 </q-item-section>
-              </q-item>
+              </q-item> -->
 <!--
               <q-item
                 active-class="tab-active"
@@ -157,19 +157,38 @@
 
               <q-item
                 active-class="tab-active"
-                to="/sales_invoices"
+                to="/pedidos"
                 class="q-ma-sm navigation-item"
                 clickable
                 v-ripple
               >
                 <q-item-section avatar>
-                  <q-icon name="attach_money" />
+                  <q-icon name="euro" />
                 </q-item-section>
 
                 <q-item-section>
                   Pedidos
                 </q-item-section>
               </q-item>
+
+              <q-item
+                active-class="tab-active"
+                to="/contabilidad"
+                class="q-ma-sm navigation-item"
+                clickable
+                v-ripple
+              >
+                <q-item-section avatar>
+                  <q-icon name="business" />
+                </q-item-section>
+
+                <q-item-section>
+                  Contabilidad
+                </q-item-section>
+              </q-item>
+
+
+              <hr>
 
    <!--          <q-item
                 active-class="tab-active"
@@ -205,13 +224,13 @@
 
             <q-item
                 active-class="tab-active"
-                to="/employee_salary_list"
+                to="/usuarios"
                 class="q-ma-sm navigation-item"
                 clickable
                 v-ripple
               >
                 <q-item-section avatar>
-                  <q-icon name="list" />
+                  <q-icon name="group" />
                 </q-item-section>
 
                 <q-item-section>
@@ -221,7 +240,7 @@
 
               <q-item
                 active-class="tab-active"
-                to="/calendar"
+                to="/calendario"
                 class="q-ma-sm navigation-item"
                 clickable
                 v-ripple
@@ -235,30 +254,16 @@
                 </q-item-section>
               </q-item>
 
-              <q-item
-                active-class="tab-active"
-                to="/department"
-                class="q-ma-sm navigation-item"
-                clickable
-                v-ripple
-              >
-                <q-item-section avatar>
-                  <q-icon name="business" />
-                </q-item-section>
 
-                <q-item-section>
-                  Contabilidad
-                </q-item-section>
-              </q-item>
               <q-item
                 active-class="tab-active"
-                to="/customer_management"
+                to="/clientes"
                 class="q-ma-sm navigation-item"
                 clickable
                 v-ripple
               >
                 <q-item-section avatar>
-                  <q-icon name="star" />
+                  <q-icon name="payments" />
                 </q-item-section>
 
                 <q-item-section>
@@ -268,13 +273,13 @@
 
               <q-item
                 active-class="tab-active"
-                to="/my_profile"
+                to="/perfil"
                 class="q-ma-sm navigation-item"
                 clickable
                 v-ripple
               >
                 <q-item-section avatar>
-                  <q-icon name="drafts" />
+                  <q-icon name="person" />
                 </q-item-section>
 
                 <q-item-section>

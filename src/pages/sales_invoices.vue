@@ -12,13 +12,13 @@
         :pagination.sync="pagination"
       >
         <template v-slot:top-right="props">
-          <q-btn
+<!--           <q-btn
             @click="invoice_dialog=true"
             outline
             color="primary"
             label="Add New"
             class="q-mr-xs"
-          />
+          /> -->
 
           <q-input outlined dense debounce="300" v-model="filter" placeholder="Buscar">
             <template v-slot:append>

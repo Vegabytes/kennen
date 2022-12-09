@@ -2,7 +2,7 @@
   <q-page class="q-pa-sm">
     <q-card>
       <q-table
-        title="Customer Management"
+        title="Clientes"
         :data="data"
         :hide-header="mode === 'grid'"
         :columns="columns"

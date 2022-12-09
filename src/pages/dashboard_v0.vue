@@ -4,7 +4,10 @@
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section class="row">
-            <div class="text-h6 col-12">Purpleshop
+            <div class="text-h6 col-12 flex justify-between">Purpleshop
+              <div class="text-h5">
+                56000€
+              </div>
             </div>
             <div class="text-subtitle3 text-uppercase text-grey-5">Febrero 2023</div>
           </q-card-section>
@@ -20,6 +23,13 @@
                   :color="!$q.dark.isActive ? 'grey-8' : 'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
+                           <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
+                @click="props.toggleFullscreen" v-if="mode === 'list'">
+                <q-tooltip :disable="$q.platform.is.mobile" v-close-popup>{{ props.inFullscreen ? 'Exit Fullscreen' :
+                    'Toggle Fullscreen'
+                }}
+                </q-tooltip>
+              </q-btn>
               </template>
             </q-table>
           </q-card-section>
@@ -29,7 +39,10 @@
 
         <q-card flat bordered class="">
           <q-card-section class="row">
-            <div class="text-h6 col-12">FlowZapas
+            <div class="text-h6 col-12 flex justify-between">FlowZapas
+              <div class="text-h5">
+                30000€
+              </div>
             </div>
             <div class="text-subtitle3 text-uppercase text-grey-5">Febrero 2023</div>
           </q-card-section>
@@ -46,6 +59,13 @@
                   :color="!$q.dark.isActive ? 'grey-8' : 'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
+                           <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
+                @click="props.toggleFullscreen" v-if="mode === 'list'">
+                <q-tooltip :disable="$q.platform.is.mobile" v-close-popup>{{ props.inFullscreen ? 'Exit Fullscreen' :
+                    'Toggle Fullscreen'
+                }}
+                </q-tooltip>
+              </q-btn>
               </template>
             </q-table>
           </q-card-section>
@@ -55,7 +75,10 @@
 
         <q-card flat bordered class="">
           <q-card-section class="row">
-            <div class="text-h6 col-12">MundoAllStar
+            <div class="text-h6 col-12 flex justify-between">MundoAllStar
+              <div class="text-h5">
+                24500€
+              </div>
             </div>
             <div class="text-subtitle3 text-uppercase text-grey-5">Febrero 2023</div>
           </q-card-section>
@@ -72,6 +95,13 @@
                   :color="!$q.dark.isActive ? 'grey-8' : 'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
+                           <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
+                @click="props.toggleFullscreen" v-if="mode === 'list'">
+                <q-tooltip :disable="$q.platform.is.mobile" v-close-popup>{{ props.inFullscreen ? 'Exit Fullscreen' :
+                    'Toggle Fullscreen'
+                }}
+                </q-tooltip>
+              </q-btn>
               </template>
             </q-table>
           </q-card-section>
@@ -82,7 +112,10 @@
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section>
-            <div class="text-h6">ZapasFlash
+            <div class="text-h6 flex justify-between">ZapasFlash
+              <div class="text-h5">
+                18000€
+              </div>
             </div>
             <div class="text-subtitle3 text-uppercase text-grey-5">Febrero 2023</div>
           </q-card-section>
@@ -99,6 +132,13 @@
                   :color="!$q.dark.isActive ? 'grey-8' : 'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
+                           <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
+                @click="props.toggleFullscreen" v-if="mode === 'list'">
+                <q-tooltip :disable="$q.platform.is.mobile" v-close-popup>{{ props.inFullscreen ? 'Exit Fullscreen' :
+                    'Toggle Fullscreen'
+                }}
+                </q-tooltip>
+              </q-btn>
               </template>
             </q-table>
           </q-card-section>
@@ -107,7 +147,10 @@
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section>
-            <div class="text-h6">Sneakersshops
+            <div class="text-h6 flex justify-between">Sneakersshops
+              <div class="text-h5">
+                20350€
+              </div>
             </div>
             <div class="text-subtitle3 text-uppercase text-grey-5">Febrero 2023</div>
           </q-card-section>
@@ -124,6 +167,13 @@
                   :color="!$q.dark.isActive ? 'grey-8' : 'white'">
                   <q-tooltip>Download</q-tooltip>
                 </q-btn>
+                           <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
+                @click="props.toggleFullscreen" v-if="mode === 'list'">
+                <q-tooltip :disable="$q.platform.is.mobile" v-close-popup>{{ props.inFullscreen ? 'Exit Fullscreen' :
+                    'Toggle Fullscreen'
+                }}
+                </q-tooltip>
+              </q-btn>
               </template>
             </q-table>
           </q-card-section>
@@ -144,7 +194,6 @@
 <template>
   <q-btn flat dense icon="fas fa-plus" class="float-right add-button"  @click="new_shop=true"
                         style="font-size: 12rem;display: contents;color:#E7E7E7">
-                  <q-tooltip>Download</q-tooltip>
                 </q-btn>
 </template>
 
@@ -156,7 +205,7 @@
     <div class="row q-col-gutter-lg q-ma-xs">
       <div class="col-12">
         <q-card flat bordered class="bg-white">
-          <q-table title="Todos ls pedidos" :data="dataAll" :hide-header="mode === 'grid'" :columns="columnsAll"
+          <q-table title="Todos los pedidos" :data="dataAll" :hide-header="mode === 'grid'" :columns="columnsAll"
             row-key="name" :grid="mode === 'grid'" :filter="filter" :pagination.sync="pagination"
             :class="$q.dark.isActive ? 'text-white' : 'text-grey-8'">
             <template v-slot:top-right="props">
