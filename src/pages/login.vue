@@ -2,31 +2,14 @@
   <q-layout>
     <q-page-container>
       <q-page class="flex flex-center">
-        <div
-          id="particles-js"
-          :class="$q.dark.isActive ? 'dark_gradient' : 'normal_gradient'"
-        ></div>
-        <q-btn
-          color="white"
-          class="absolute-top-right"
-          flat
-          round
-          @click="$q.dark.toggle()"
-          :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"
-        />
-        <q-card
-          class="login-form"
-          v-bind:style="
-            $q.platform.is.mobile ? { width: '80%' } : { width: '30%' }
-          "
-        >
-     <!--    <q-img src="/statics/images/pharmacy.jpg"></q-img> -->
+        <div id="particles-js" :class="$q.dark.isActive ? 'dark_gradient' : 'normal_gradient'"></div>
+        <q-btn color="white" class="absolute-top-right" flat round @click="$q.dark.toggle()"
+          :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'" />
+        <q-card class="login-form" v-bind:style="
+  $q.platform.is.mobile ? { width: '80%' } : { width: '30%' }
+">
           <q-card-section>
-            <q-avatar
-              size="74px"
-              class="absolute"
-              style="top: 0;right: 25px;transform: translateY(-50%);"
-            >
+            <q-avatar size="74px" class="absolute" style="top: 0;right: 25px;transform: translateY(-50%);">
               <img src="../statics/images/kennen.jpeg" />
             </q-avatar>
             <div class="row no-wrap items-center">
@@ -39,60 +22,29 @@
             <q-form class="q-gutter-md">
               <q-input filled v-model="username" label="Usuario" lazy-rules />
 
-              <q-input
-                type="password"
-                filled
-                v-model="password"
-                label="Contraseña"
-                lazy-rules
-              />
+              <q-input type="password" filled v-model="password" label="Contraseña" lazy-rules />
 
               <div>
-<!--                 <q-btn
-                icon-right="login"
-                  label="Iniciar Sesión"
-                  to="/dashboard"
-                  type="button"
-                  color="accent"
-                  text-color="$dark"
-                  @click="loginNotify"
-                /> -->
-                <q-btn class="full-width" @click="loginNotify" to="/dashboard" color="accent" label="Iniciar Sesión" type="submit"></q-btn>
-
-<!--                 <a
-                  style="font-size: 30px;"
-                  class="float-right"
-                  href="https://github.com/Vegabytes"
-                  target="_blank"
-                  title="Donate"
-                  ><i class="fas fa-heart" style="color: #eb5daa"></i
-                ></a> -->
+                <q-btn class="full-width" @click="loginNotify" to="/dashboard" color="accent" label="Iniciar Sesión"
+                  type="submit"></q-btn>
               </div>
               <div>
 
-                  <div class="q-mt-lg">
-                    <div class="q-mt-sm text-subtitle2">
-                      ¿No está registrado?
-                      <router-link class="text-primary" to="/registro">Registrarse</router-link>
-                    </div>
-                    <div class="q-mt-sm">
-                      ¿Ha olvidado su contraseña? ¡Haga click
-                      <router-link class="text-primary" to="/recuperar">aqui!</router-link>
-                    </div>
+                <div class="q-mt-lg">
+                  <div class="q-mt-sm text-subtitle2">
+                    ¿No está registrado?
+                    <router-link class="text-primary" to="/registro">Registrarse</router-link>
+                  </div>
+                  <div class="q-mt-sm">
+                    ¿Ha olvidado su contraseña? ¡Haga click
+                    <router-link class="text-primary" to="/recuperar">aqui!</router-link>
                   </div>
                 </div>
+              </div>
             </q-form>
           </q-card-section>
         </q-card>
       </q-page>
-<!--       <q-banner inline-actions rounded style="background-color:#5dcf8a" class="z-max shadow-10 q-ma-md absolute absolute-bottom text-white">
-        Looking for beautiful premium Quasar CRM admin template for Vue 3? Please drop me an email. Buy only at <b>$49</b>!
-      <template v-slot:action>
-        <q-btn target="_blank" type="a" href="https://next-quasar-admin-crm.netlify.com/" flat style="background-color:purple" class="text-capitalize q-mr-md" label="Live Demo"></q-btn>
-        <q-btn type="a" href="mailto:acastillocampillo@gmail.com" flat style="background-color:#172b4d" class="text-capitalize" label="Email me"></q-btn>
-      </template>
-    </q-banner>
-    -->
     </q-page-container>
   </q-layout>
 </template>
@@ -239,14 +191,16 @@ methods: {
   background-size: cover;
   background-position: 50% 50%;
 }
+
 .normal_gradient {
   /*background: linear-gradient(-180deg, rgb(0,0,0) 11%, #EDC030 70%);*/
-  background: linear-gradient(-343deg, rgb(0,0,0) 0%, #EDC030 70%);
+  background: linear-gradient(-343deg, rgb(0, 0, 0) 0%, #EDC030 70%);
 }
+
 .dark_gradient {
   background: linear-gradient(-180deg, rgb(18, 18, 18) 0%, #F2C037 207%)
-
 }
+
 .login-form {
   position: absolute;
 }
