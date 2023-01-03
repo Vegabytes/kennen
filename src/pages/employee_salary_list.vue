@@ -12,7 +12,8 @@
         :pagination.sync="pagination"
       >
         <template v-slot:top-right="props">
-          <q-input outlined dense debounce="300" v-model="filter" placeholder="Buscar">
+          <q-btn @click="new_user=true" color="black" label="Nuevo" class="q-mr-xs text-capitalize"/>
+          <q-input outlined dense debounce="300" v-model="filter" label="Buscar">
             <template v-slot:append>
               <q-icon name="search"/>
             </template>
@@ -37,7 +38,7 @@
             flat
             round
             dense
-            :icon="mode === 'grid' ? 'list' : 'grid_on'"
+            :icon="mode === 'grid' ? 'list' : 'grid_view'"
             @click="mode = mode === 'grid' ? 'list' : 'grid'; separator = mode === 'grid' ? 'none' : 'horizontal'"
             v-if="!props.inFullscreen"
           >
@@ -48,9 +49,9 @@
             </q-tooltip>
           </q-btn>
 
-          <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+          <q-btn flat dense icon="download" class="float-right" @click="exportTable"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
         </template>
         <template v-slot:body-cell-detail="props">
@@ -61,8 +62,8 @@
         <template v-slot:body-cell-action="props">
           <q-td :props="props">
             <div class="q-gutter-sm">
-              <q-btn dense color="primary" icon="edit"/>
-              <q-btn dense color="red" icon="delete"/>
+              <q-btn dense color="positive" icon="edit"/>
+              <q-btn dense color="dark" icon="delete"/>
             </div>
           </q-td>
         </template>
@@ -102,6 +103,72 @@
         </q-card-section>
       </q-card>
     </q-dialog>
+    <q-dialog v-model="new_user">
+      <q-card style="width: 600px; max-width: 60vw;">
+        <q-card-section>
+          <div class="text-h6">
+           Añadir nuevo usuario
+            <q-btn round flat dense icon="close" class="float-right" color="grey-8" v-close-popup></q-btn>
+          </div>
+        </q-card-section>
+        <q-separator inset></q-separator>
+        <q-card-section class="q-pt-none">
+          <q-form class="q-gutter-md">
+            <q-list>
+              <q-item>
+                <q-item-section>
+                  <q-item-label class="q-pb-xs">Nombre cliente</q-item-label>
+                  <q-input dense outlined v-model="user.name" label="Nombre cliente"/>
+                </q-item-section>
+              </q-item>
+              <q-item>
+                <q-item-section>
+                  <q-item-label class="q-pb-xs">Ciudad</q-item-label>
+                  <q-input dense outlined v-model="user.city" label="Ciudad"/>
+                </q-item-section>
+              </q-item>
+              <q-item>
+                <q-item-section>
+                  <q-item-label class="q-pb-xs">Provincia</q-item-label>
+                  <q-input dense outlined v-model="user.state" label="Provincia"/>
+                </q-item-section>
+              </q-item>
+              <q-item>
+                <q-item-section>
+                  <q-item-label class="q-pb-xs">Fecha alta</q-item-label>
+                  <q-input
+                    dense
+                    outlined
+                    v-model="user.last_call"
+                    mask="date"
+                    label="Fecha alta"
+                  >
+                    <template v-slot:append>
+                      <q-icon name="event" class="cursor-pointer">
+                        <q-popup-proxy
+                          ref="lastCallProxy"
+                          transition-show="scale"
+                          transition-hide="scale"
+                        >
+                          <q-date
+                            v-model="user.last_call"
+                            @input="() => $refs.lastCallProxy.hide()"
+                          />
+                        </q-popup-proxy>
+                      </q-icon>
+                    </template>
+                  </q-input>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </q-form>
+        </q-card-section>
+
+        <q-card-actions align="right" class="text-teal">
+          <q-btn label="Guardar" type="submit" color="positive" text-color="white" v-close-popup/>
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -123,8 +190,10 @@
         data() {
             return {
                 filter: "",
+                user: {},
                 mode: "list",
                 invoice: {},
+                new_user: false,
                 employee_dialog: false,
                 columns: [
                     {
@@ -229,4 +298,15 @@
     display: block;
     text-align: center;
   }
+.q-field--dense .q-field__control, .q-field--dense .q-field__marginal {
+    height: 37px;
+}
+.q-table th.sortable {
+    cursor: pointer;
+    font-weight: bold;
+}
 </style>
+
+
+
+

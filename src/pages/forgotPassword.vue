@@ -31,22 +31,13 @@
             </q-avatar>
             <div class="row no-wrap items-center">
               <div class="col text-h6 ellipsis text-center">
-                Acceder al panel de control
+                Recuperar contraseña
               </div>
             </div>
           </q-card-section>
           <q-card-section>
             <q-form class="q-gutter-md">
-              <q-input filled v-model="username" label="Usuario" lazy-rules />
-
-              <q-input
-                type="password"
-                filled
-                v-model="password"
-                label="Contraseña"
-                lazy-rules
-              />
-
+              <q-input filled v-model="username" label="Introduzca el correo electrónico con el que se dio de alta" lazy-rules />
               <div>
 <!--                 <q-btn
                 icon-right="login"
@@ -57,7 +48,7 @@
                   text-color="$dark"
                   @click="loginNotify"
                 /> -->
-                <q-btn class="full-width" @click="loginNotify" to="/dashboard" color="accent" label="Iniciar Sesión" type="submit"></q-btn>
+                <q-btn class="full-width" @click="loginNotify" to="/dashboard" color="accent" label="Recuperar contraseña" type="submit"></q-btn>
 
 <!--                 <a
                   style="font-size: 30px;"
@@ -72,12 +63,7 @@
 
                   <div class="q-mt-lg">
                     <div class="q-mt-sm text-subtitle2">
-                      ¿No está registrado?
-                      <router-link class="text-primary" to="/registro">Registrarse</router-link>
-                    </div>
-                    <div class="q-mt-sm">
-                      ¿Ha olvidado su contraseña? ¡Haga click
-                      <router-link class="text-primary" to="/recuperar">aqui!</router-link>
+                      <router-link class="text-primary" to="/">Acceder a panel de control</router-link>
                     </div>
                   </div>
                 </div>

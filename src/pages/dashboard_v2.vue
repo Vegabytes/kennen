@@ -98,7 +98,7 @@
               <div :class="!$q.dark.isActive? 'text-grey-7':'text-white'" class="text-h6 col-12">Sales vs Goals
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('sales_goals')"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </div>
             </q-card-section>
@@ -116,7 +116,7 @@
               <div :class="!$q.dark.isActive? 'text-grey-7':'text-white'" class="text-h6 col-12">Market Share & Growth
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('market_share')"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </div>
             </q-card-section>
@@ -136,7 +136,7 @@
               <div :class="!$q.dark.isActive? 'text-grey-7':'text-white'" class="text-h6">Key Competitors
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('key_competitors')"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </div>
             </q-card-section>
@@ -154,7 +154,7 @@
               <div :class="!$q.dark.isActive? 'text-grey-7':'text-white'" class="text-h6">Sales Pipeline by Sales Rep
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('sales_pipeline')"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </div>
             </q-card-section>
@@ -238,7 +238,7 @@
                 </q-btn>
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </template>
             </q-table>

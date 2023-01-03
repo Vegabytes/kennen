@@ -12,7 +12,8 @@
         :pagination.sync="pagination"
       >
         <template v-slot:top-right="props">
-          <q-btn @click="new_customer=true" outline color="primary" label="Add New" class="q-mr-xs"/>
+          <q-btn @click="new_customer=true" color="black" label="Nuevo" class="q-mr-xs  text-capitalize"/>
+
 
           <q-input outlined dense debounce="300" v-model="filter" placeholder="Buscar">
             <template v-slot:append>
@@ -39,7 +40,7 @@
             flat
             round
             dense
-            :icon="mode === 'grid' ? 'list' : 'grid_on'"
+            :icon="mode === 'grid' ? 'list' : 'grid_view'"
             @click="mode = mode === 'grid' ? 'list' : 'grid'; separator = mode === 'grid' ? 'none' : 'horizontal'"
             v-if="!props.inFullscreen"
           >
@@ -50,9 +51,9 @@
             </q-tooltip>
           </q-btn>
 
-          <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+          <q-btn flat dense icon="download" class="float-right" @click="exportTable"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
         </template>
       </q-table>
@@ -61,7 +62,7 @@
       <q-card style="width: 600px; max-width: 60vw;">
         <q-card-section>
           <div class="text-h6">
-            Add new customer
+            Añadir nuevo cliente
             <q-btn round flat dense icon="close" class="float-right" color="grey-8" v-close-popup></q-btn>
           </div>
         </q-card-section>
@@ -71,31 +72,31 @@
             <q-list>
               <q-item>
                 <q-item-section>
-                  <q-item-label class="q-pb-xs">Customer Name</q-item-label>
-                  <q-input dense outlined v-model="customer.name" label="Customer Name"/>
+                  <q-item-label class="q-pb-xs">Nombre cliente</q-item-label>
+                  <q-input dense outlined v-model="customer.name" label="Nombre cliente"/>
                 </q-item-section>
               </q-item>
               <q-item>
                 <q-item-section>
-                  <q-item-label class="q-pb-xs">City</q-item-label>
-                  <q-input dense outlined v-model="customer.city" label="City"/>
+                  <q-item-label class="q-pb-xs">Ciudad</q-item-label>
+                  <q-input dense outlined v-model="customer.city" label="Ciudad"/>
                 </q-item-section>
               </q-item>
               <q-item>
                 <q-item-section>
-                  <q-item-label class="q-pb-xs">State</q-item-label>
-                  <q-input dense outlined v-model="customer.state" label="State"/>
+                  <q-item-label class="q-pb-xs">Provincia</q-item-label>
+                  <q-input dense outlined v-model="customer.state" label="Provincia"/>
                 </q-item-section>
               </q-item>
               <q-item>
                 <q-item-section>
-                  <q-item-label class="q-pb-xs">Last Call</q-item-label>
+                  <q-item-label class="q-pb-xs">Fecha alta</q-item-label>
                   <q-input
                     dense
                     outlined
                     v-model="customer.last_call"
                     mask="date"
-                    label="Last Call"
+                    label="Fecha alta"
                   >
                     <template v-slot:append>
                       <q-icon name="event" class="cursor-pointer">
@@ -119,7 +120,7 @@
         </q-card-section>
 
         <q-card-actions align="right" class="text-teal">
-          <q-btn label="Save" type="submit" color="primary" v-close-popup/>
+          <q-btn label="Guardar" type="submit" color="positive" text-color="white" v-close-popup/>
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -296,3 +297,12 @@
         }
     };
 </script>
+
+
+<style scoped>
+.q-table th.sortable {
+    cursor: pointer;
+    font-weight: bold;
+}
+</style>
+

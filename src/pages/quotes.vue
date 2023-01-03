@@ -50,7 +50,7 @@
 
           <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
         </template>
         <template v-slot:body-cell-stage="props">
@@ -69,8 +69,8 @@
         <template v-slot:body-cell-action="props">
           <q-td :props="props">
             <div class="q-gutter-sm">
-              <q-btn dense color="primary" icon="edit"/>
-              <q-btn dense color="red" icon="delete"/>
+              <q-btn dense color="primary" icon="positive"/>
+              <q-btn dense color="red" icon="dark"/>
             </div>
           </q-td>
         </template>
@@ -276,4 +276,10 @@
     display: block;
     text-align: center;
   }
+  .q-table th.sortable {
+    cursor: pointer;
+    font-weight: bold;
+}
 </style>
+
+

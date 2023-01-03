@@ -31,19 +31,30 @@
             </q-avatar>
             <div class="row no-wrap items-center">
               <div class="col text-h6 ellipsis text-center">
-                Acceder al panel de control
+                Registro de usuario
               </div>
             </div>
           </q-card-section>
           <q-card-section>
             <q-form class="q-gutter-md">
-              <q-input filled v-model="username" label="Usuario" lazy-rules />
+              <q-input filled v-model="username" label="Nombre completo" lazy-rules />
+              <q-input filled v-model="alias" label="Alias" lazy-rules />
+              <q-input filled v-model="email" label="Correo electrónico" lazy-rules />
+              <q-input filled v-model="age" label="Edad" lazy-rules />
+              <q-input filled v-model="phone" label="Teléfono" lazy-rules />
 
               <q-input
                 type="password"
                 filled
                 v-model="password"
                 label="Contraseña"
+                lazy-rules
+              />
+              <q-input
+                type="password"
+                filled
+                v-model="password"
+                label="Repite la contraseña"
                 lazy-rules
               />
 
@@ -57,7 +68,7 @@
                   text-color="$dark"
                   @click="loginNotify"
                 /> -->
-                <q-btn class="full-width" @click="loginNotify" to="/dashboard" color="accent" label="Iniciar Sesión" type="submit"></q-btn>
+                <q-btn class="full-width" @click="signupNotify" to="/dashboard" color="accent" label="Iniciar Sesión" type="submit"></q-btn>
 
 <!--                 <a
                   style="font-size: 30px;"
@@ -72,8 +83,8 @@
 
                   <div class="q-mt-lg">
                     <div class="q-mt-sm text-subtitle2">
-                      ¿No está registrado?
-                      <router-link class="text-primary" to="/registro">Registrarse</router-link>
+                      ¿Ya está registrado?
+                      <router-link class="text-primary" to="/">Acceder a panel de control</router-link>
                     </div>
                     <div class="q-mt-sm">
                       ¿Ha olvidado su contraseña? ¡Haga click
@@ -105,13 +116,17 @@
         data() {
             return {
                 username: 'admin',
-                password: 'Admin@CRM'
+                alias: 'kennen',
+                password: 'Admin@CRM',
+                email: 'kennen@gmail.com',
+                age: '99',
+                phone: "000-000000"
             }
         },
 methods: {
-           loginNotify(){
+           signupNotify(){
              this.$q.notify({
-        message: 'Login Correcto',
+        message: 'Registro correcto',
       })
            }
          },

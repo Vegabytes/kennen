@@ -8,7 +8,8 @@
   "author": "Alejandro Castillo",
   "private": true,
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"No test specified\" && exit 0",
+    "deploy":"aws s3 cp project-files/ s3://ianholden.co.uk --recursive --profile testUser"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",

@@ -39,7 +39,7 @@
             flat
             round
             dense
-            :icon="mode === 'grid' ? 'list' : 'grid_on'"
+            :icon="mode === 'grid' ? 'list' : 'grid_view'"
             @click="mode = mode === 'grid' ? 'list' : 'grid'; separator = mode === 'grid' ? 'none' : 'horizontal'"
             v-if="!props.inFullscreen"
           >
@@ -52,7 +52,7 @@
 
           <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
         </template>
         <template v-slot:body-cell-status="props">
@@ -111,7 +111,7 @@
         </q-card-section>
 
         <q-card-actions align="right" class="text-teal">
-          <q-btn label="Save" type="submit" color="primary" v-close-popup/>
+          <q-btn label="Guardar" type="submit" color="positive" text-color="white" v-close-popup/>
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -320,4 +320,12 @@
     display: block;
     text-align: center;
   }
+  .q-table th.sortable {
+    cursor: pointer;
+    font-weight: bold;
+}
 </style>
+
+
+
+

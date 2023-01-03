@@ -103,7 +103,7 @@
                 Goals
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('sales_goals')"
                        color="grey-6">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </div>
             </q-card-section>
@@ -122,7 +122,7 @@
                 & Growth
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('market_share')"
                        color="grey-6">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </div>
             </q-card-section>
@@ -142,7 +142,7 @@
               <div class="text-white" style="font-weight: 600;letter-spacing: 1px;font-size: 16px;">Key Competitors
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('key_competitors')"
                        color="grey-6">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </div>
             </q-card-section>
@@ -161,7 +161,7 @@
                 Sales Rep
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('sales_pipeline')"
                        color="grey-6">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </div>
             </q-card-section>
@@ -248,7 +248,7 @@
 
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </template>
             </q-table>
@@ -782,4 +782,9 @@
     background: -webkit-linear-gradient(45deg, #42e695, #3bb2b8) !important;
     background: linear-gradient(45deg, #42e695, #3bb2b8) !important;
   }
+
+  .q-table th.sortable {
+    cursor: pointer;
+    font-weight: bold;
+}
 </style>

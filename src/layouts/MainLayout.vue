@@ -17,7 +17,11 @@
                 <img src="https://cdn.quasar.dev/logo/svg/quasar-logo.svg">
                 </q-avatar> -->
 
-        <q-toolbar-title>Kennen</q-toolbar-title>
+        <q-toolbar-title>Kennen
+          <q-avatar>
+          <img src="../statics/images/kennen.jpeg" />
+          </q-avatar>
+        </q-toolbar-title>
         <q-btn
           class="q-mr-xs"
           flat
@@ -59,12 +63,19 @@
       >
         <div style="height: calc(100% - 117px);padding:10px;">
           <q-toolbar>
+            <q-item
+                to="/perfil"
+                class="q-ma-sm navigation-item"
+                clickable
+                v-ripple
+              >
             <q-avatar>
               <img src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png" />
 
             </q-avatar>
 
             <q-toolbar-title>Alex</q-toolbar-title>
+            </q-item>
           </q-toolbar>
           <hr />
           <q-scroll-area style="height:100%;">
@@ -163,7 +174,7 @@
                 v-ripple
               >
                 <q-item-section avatar>
-                  <q-icon name="euro" />
+                  <q-icon name="inventory" />
                 </q-item-section>
 
                 <q-item-section>
@@ -361,16 +372,15 @@ export default {
 
 body {
   background: #F6F6F6 !important;
+  font-family: 'Helvetica', 'Arial', sans-serif !important;
 }
 
 .header_normal {
-/*   background: linear-gradient(
-    145deg,
-    rgb(32, 106, 80) 15%,
-    rgb(21, 57, 102) 70%
-  ); */
-  background-color:  #000;
-/*   color: #000; */
+  background-color:  #1F1F1F;
+}
+.q-toolbar__title {
+    padding: 5px 10px 0px;
+
 }
 
 
@@ -385,6 +395,14 @@ body {
 }
 
 header .q-toolbar__title {
-    color:#EBC61F;
+    color:#F2BC0F;
+}
+
+.q-item.q-router-link--active {
+  color: inherit;
+}
+.q-table th.sortable {
+    cursor: pointer;
+    font-weight: bold;
 }
 </style>

@@ -36,39 +36,39 @@
               <q-input
                 filled
                 v-model="user.first_name"
-                label="First Name"
+                label="Nombre"
               />
 
               <q-input
                 filled
                 v-model="user.last_name"
-                label="Last Name"
+                label="Apellidos"
 
               />
 
               <q-input
                 filled
                 v-model="user.age"
-                label="Age"
+                label="Edad"
 
               />
 
               <q-input
                 filled
                 v-model="user.email"
-                label="Email"
+                label="Correo electrónico"
 
               />
 
               <q-input
                 filled
                 v-model="user.phone"
-                label="Phone"
+                label="Teléfono"
 
               />
 
               <div>
-                <q-btn label="Update" type="submit" color="primary"/>
+                <q-btn label="Actualizar" type="submit" color="positive" text-color="white"/>
               </div>
             </q-form>
           </q-card-section>

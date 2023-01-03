@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div class="row q-col-gutter-lg q-ma-xs q-mr-sm">
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section class="row">
             <div class="text-h6 col-12 flex justify-between">Purpleshop
@@ -9,19 +9,24 @@
                 56000€
               </div>
             </div>
-            <div class="text-subtitle3 text-uppercase text-grey-5">Febrero 2023</div>
+            <div class="text-subtitle3 text-uppercase text-primary">Febrero 2023</div>
           </q-card-section>
 
           <q-separator inset></q-separator>
 
           <q-card-section>
-            <q-table title="Últimos pedidos" :data="data" :hide-header="mode === 'grid'" :columns="columns"
-              row-key="name" :grid="mode === 'grid'" :filter="filter" :pagination.sync="pagination"
+            <q-table title="Purpleshop" :data="data" :hide-header="mode === 'grid'" :columns="columns"
+              row-key="name" :filter="filter_purpleshop" :pagination.sync="pagination"
               :class="$q.dark.isActive ? 'text-white' : 'text-grey-8'">
               <template v-slot:top-right="props">
-                <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                <q-input outlined dense debounce="300" v-model="filter_purpleshop" placeholder="Buscar">
+                <template v-slot:append>
+                  <q-icon name="search" />
+                </template>
+              </q-input>
+                <q-btn flat dense icon="download" class="float-right" @click="exportTable"
                   :color="!$q.dark.isActive ? 'grey-8' : 'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
                            <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
                 @click="props.toggleFullscreen" v-if="mode === 'list'">
@@ -35,7 +40,7 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
         <q-card flat bordered class="">
           <q-card-section class="row">
@@ -44,20 +49,25 @@
                 30000€
               </div>
             </div>
-            <div class="text-subtitle3 text-uppercase text-grey-5">Febrero 2023</div>
+            <div class="text-subtitle3 text-uppercase text-primary">Febrero 2023</div>
           </q-card-section>
 
           <q-separator inset></q-separator>
 
           <q-card-section>
             <!--               <IEcharts ref="line" :option="lineChartOption" :resizable="true" style="height:220px"/> -->
-            <q-table title="Últimos pedidos" :data="data" :hide-header="mode === 'grid'" :columns="columns"
-              row-key="name" :grid="mode === 'grid'" :filter="filter" :pagination.sync="pagination"
+            <q-table title="FlowZapas" :data="data" :hide-header="mode === 'grid'" :columns="columns"
+              row-key="name" :filter="filter_flowzapas" :pagination.sync="pagination"
               :class="$q.dark.isActive ? 'text-white' : 'text-grey-8'">
               <template v-slot:top-right="props">
-                <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                <q-input outlined dense debounce="300" v-model="filter_flowzapas" placeholder="Buscar">
+                <template v-slot:append>
+                  <q-icon name="search" />
+                </template>
+                </q-input>
+                <q-btn flat dense icon="download" class="float-right" @click="exportTable"
                   :color="!$q.dark.isActive ? 'grey-8' : 'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
                            <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
                 @click="props.toggleFullscreen" v-if="mode === 'list'">
@@ -71,7 +81,7 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
 
         <q-card flat bordered class="">
           <q-card-section class="row">
@@ -80,20 +90,25 @@
                 24500€
               </div>
             </div>
-            <div class="text-subtitle3 text-uppercase text-grey-5">Febrero 2023</div>
+            <div class="text-subtitle3 text-uppercase text-primary">Febrero 2023</div>
           </q-card-section>
 
           <q-separator inset></q-separator>
 
           <q-card-section>
             <!--              <IEcharts :option="gaugeOptions" ref="gauge" :resizable="true" style="height:220px"/> -->
-            <q-table title="Últimos pedidos" :data="data" :hide-header="mode === 'grid'" :columns="columns"
-              row-key="name" :grid="mode === 'grid'" :filter="filter" :pagination.sync="pagination"
+            <q-table title="MundoAllStar" :data="data" :hide-header="mode === 'grid'" :columns="columns"
+              row-key="name" :filter="filter_mundoallstar" :pagination.sync="pagination"
               :class="$q.dark.isActive ? 'text-white' : 'text-grey-8'">
               <template v-slot:top-right="props">
-                <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                <q-input outlined dense debounce="300" v-model="filter_mundoallstar" placeholder="Buscar">
+                <template v-slot:append>
+                  <q-icon name="search" />
+                </template>
+                </q-input>
+                <q-btn flat dense icon="download" class="float-right" @click="exportTable"
                   :color="!$q.dark.isActive ? 'grey-8' : 'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
                            <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
                 @click="props.toggleFullscreen" v-if="mode === 'list'">
@@ -107,9 +122,7 @@
           </q-card-section>
         </q-card>
       </div>
-    </div>
-    <div class="row q-col-gutter-lg q-ma-xs q-mr-sm">
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section>
             <div class="text-h6 flex justify-between">ZapasFlash
@@ -117,7 +130,7 @@
                 18000€
               </div>
             </div>
-            <div class="text-subtitle3 text-uppercase text-grey-5">Febrero 2023</div>
+            <div class="text-subtitle3 text-uppercase text-primary">Febrero 2023</div>
           </q-card-section>
 
           <q-separator inset></q-separator>
@@ -125,12 +138,17 @@
           <q-card-section>
             <!--             <IEcharts ref="pie" :option="pieOptions" :resizable="true" style="height:270px"/> -->
             <q-table title="Últimos pedidos" :data="data" :hide-header="mode === 'grid'" :columns="columns"
-              row-key="name" :grid="mode === 'grid'" :filter="filter" :pagination.sync="pagination"
+              row-key="name" :filter="filter_zapasflash" :pagination.sync="pagination"
               :class="$q.dark.isActive ? 'text-white' : 'text-grey-8'">
               <template v-slot:top-right="props">
-                <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                <q-input outlined dense debounce="300" v-model="filter_zapasflash" placeholder="Buscar">
+                <template v-slot:append>
+                  <q-icon name="search" />
+                </template>
+                </q-input>
+                <q-btn flat dense icon="download" class="float-right" @click="exportTable"
                   :color="!$q.dark.isActive ? 'grey-8' : 'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSVÚltimos</q-tooltip>
                 </q-btn>
                            <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
                 @click="props.toggleFullscreen" v-if="mode === 'list'">
@@ -144,7 +162,7 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card flat bordered class="">
           <q-card-section>
             <div class="text-h6 flex justify-between">Sneakersshops
@@ -152,7 +170,7 @@
                 20350€
               </div>
             </div>
-            <div class="text-subtitle3 text-uppercase text-grey-5">Febrero 2023</div>
+            <div class="text-subtitle3 text-uppercase text-primary">Febrero 2023</div>
           </q-card-section>
 
           <q-separator inset></q-separator>
@@ -160,12 +178,17 @@
           <q-card-section>
             <!-- <IEcharts ref="stack_bar" :option="stackedBarOptions" :resizable="true" style="height:270px"/> -->
             <q-table title="Últimos pedidos" :data="data" :hide-header="mode === 'grid'" :columns="columns"
-              row-key="name" :grid="mode === 'grid'" :filter="filter" :pagination.sync="pagination"
+              row-key="name" :filter="filter_sneakersshops" :pagination.sync="pagination"
               :class="$q.dark.isActive ? 'text-white' : 'text-grey-8'">
               <template v-slot:top-right="props">
-                <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+                <q-input outlined dense debounce="300" v-model="filter_sneakersshops" placeholder="Buscar">
+                <template v-slot:append>
+                  <q-icon name="search" />
+                </template>
+                </q-input>
+                <q-btn flat dense icon="download" class="float-right" @click="exportTable"
                   :color="!$q.dark.isActive ? 'grey-8' : 'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
                            <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
                 @click="props.toggleFullscreen" v-if="mode === 'list'">
@@ -179,7 +202,7 @@
           </q-card-section>
         </q-card>
       </div>
-      <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+      <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-xs-12">
         <q-card flat bordered style="min-height: 100%;">
           <q-card-section>
             <div class="text-h6">Nueva Tienda
@@ -193,7 +216,7 @@
             <!-- <IEcharts ref="stack_bar" :option="stackedBarOptions" :resizable="true" style="height:270px"/> -->
 <template>
   <q-btn flat dense icon="fas fa-plus" class="float-right add-button"  @click="new_shop=true"
-                        style="font-size: 12rem;display: contents;color:#E7E7E7">
+                        style="font-size: 6rem;display: contents;color:#E7E7E7">
                 </q-btn>
 </template>
 
@@ -223,15 +246,15 @@
                 </q-tooltip>
               </q-btn>
 
-              <q-btn flat round dense :icon="mode === 'grid' ? 'list' : 'grid_on'"
+              <q-btn flat round dense :icon="mode === 'grid' ? 'list' : 'grid_view'"
                 @click="mode = mode === 'grid' ? 'list' : 'grid'; separator = mode === 'grid' ? 'none' : 'horizontal'"
                 v-if="!props.inFullscreen">
                 <q-tooltip :disable="$q.platform.is.mobile" v-close-popup>{{ mode === 'grid' ? 'List' : 'Grid' }}
                 </q-tooltip>
               </q-btn>
-              <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
+              <q-btn flat dense icon="download" class="float-right" @click="exportTable"
                 :color="!$q.dark.isActive ? 'grey-8' : 'white'">
-                <q-tooltip>Download</q-tooltip>
+                <q-tooltip>Exportar a CSV</q-tooltip>
               </q-btn>
             </template>
           </q-table>
@@ -258,19 +281,19 @@
               </q-item>
               <q-item>
                 <q-item-section>
-                  <q-item-label class="q-pb-xs">Ciudad</q-item-label>
-                  <q-input dense outlined v-model="shop.city" label="City"/>
+                  <q-item-label class="q-pb-xs">Link de la tienda</q-item-label>
+                  <q-input dense outlined v-model="shop.city" label="Ciudad"/>
                 </q-item-section>
               </q-item>
-              <q-item>
+      <!--         <q-item>
                 <q-item-section>
                   <q-item-label class="q-pb-xs">Provincia</q-item-label>
-                  <q-input dense outlined v-model="shop.state" label="State"/>
+                  <q-input dense outlined v-model="shop.state" label="Provincia"/>
                 </q-item-section>
-              </q-item>
+              </q-item> -->
               <q-item>
                 <q-item-section>
-                  <q-item-label class="q-pb-xs">Api</q-item-label>
+                  <q-item-label class="q-pb-xs">API</q-item-label>
                   <q-input
                     dense
                     outlined
@@ -299,7 +322,7 @@
         </q-card-section>
 
         <q-card-actions align="right" class="text-teal">
-          <q-btn label="Save" type="submit" color="primary" v-close-popup/>
+          <q-btn label="Guardar" type="submit" color="positive" text-color="white" v-close-popup/>
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -332,6 +355,11 @@ export default {
     return {
       new_shop: false,
       filter: '',
+      filter_purpleshop: '',
+      filter_flowzapas: '',
+      filter_mundoallstar: '',
+      filter_zapasflash: '',
+      filter_sneakersshops: '',
       mode: 'list',
       shop: {},
 
@@ -377,7 +405,7 @@ export default {
           name: 'Nike Air Force One Blancas',
           regarding: 'Pago aceptado',
           owner: 'John',
-          creation_date: '08-12-2022',
+          creation_date: '08-11-2022',
           shop: 'FlowZapas',
           cost: '67,05€'
         },
@@ -386,7 +414,7 @@ export default {
           name: 'Dr. Martens Altas Plataforma Negras',
           regarding: 'Cancelado',
           owner: 'John',
-          creation_date: '08-12-2022',
+          creation_date: '01-11-2022',
           shop: 'Sneakersshops',
           cost: '87,05€'
         },
@@ -395,7 +423,7 @@ export default {
           name: 'Converse All Star Plataforma Altas Blancas',
           regarding: 'Entregado',
           owner: 'John',
-          creation_date: '08-12-2022',
+          creation_date: '01-11-2022',
           shop: 'MundoAllStar',
           cost: '65,16€'
         },
@@ -404,7 +432,7 @@ export default {
           name: 'Nike Air Force One Negras',
           regarding: 'Error en el cobro',
           owner: 'John',
-          creation_date: '08-12-2022',
+          creation_date: '28-10-2022',
           shop: 'Sneakersshops',
           cost: '64,05€'
         },
@@ -413,7 +441,7 @@ export default {
           name: 'Converse All Star Altas De Plataforma Negras',
           regarding: 'Pendiente de cobro',
           owner: 'John',
-          creation_date: '08-12-2022',
+          creation_date: '24-10-2022',
           shop: 'ZapasFlash',
           cost: '64,05€'
         },
@@ -422,7 +450,7 @@ export default {
           name: 'Nike Air Force One Blancas Altas',
           regarding: 'Enviado',
           owner: 'John',
-          creation_date: '08-12-2022',
+          creation_date: '18-10-2022',
           shop: 'Sneakersshops',
           cost: '100€'
         },
@@ -810,5 +838,10 @@ export default {
 
 .orange_dark {
   background-color: #64350e;
+}
+
+.q-table th.sortable {
+    cursor: pointer;
+    font-weight: bold;
 }
 </style>

@@ -21,8 +21,8 @@
               <template v-slot:body-cell-action="props">
                 <q-td :props="props">
                   <div class="q-gutter-sm">
-                    <q-btn dense color="primary" icon="edit"/>
-                    <q-btn dense color="red" icon="delete"/>
+                    <q-btn dense color="accent" icon="edit"/>
+                    <q-btn dense color="dark" icon="delete"/>
                   </div>
                 </q-td>
               </template>
@@ -49,8 +49,8 @@
               <template v-slot:body-cell-action="props">
                 <q-td :props="props">
                   <div class="q-gutter-sm">
-                    <q-btn dense color="primary" icon="edit"/>
-                    <q-btn dense color="red" icon="delete"/>
+                    <q-btn dense color="accent" icon="edit"/>
+                    <q-btn dense color="dark" icon="delete"/>
                   </div>
                 </q-td>
               </template>
@@ -77,8 +77,8 @@
               <template v-slot:body-cell-action="props">
                 <q-td :props="props">
                   <div class="q-gutter-sm">
-                    <q-btn dense color="primary" icon="edit"/>
-                    <q-btn dense color="red" icon="delete"/>
+                    <q-btn dense color="accent" icon="edit"/>
+                    <q-btn dense color="dark" icon="delete"/>
                   </div>
                 </q-td>
               </template>
@@ -105,8 +105,8 @@
               <template v-slot:body-cell-action="props">
                 <q-td :props="props">
                   <div class="q-gutter-sm">
-                    <q-btn dense color="primary" icon="edit"/>
-                    <q-btn dense color="red" icon="delete"/>
+                    <q-btn dense color="accent" icon="edit"/>
+                    <q-btn dense color="dark" icon="delete"/>
                   </div>
                 </q-td>
               </template>
@@ -208,3 +208,10 @@
         }
     }
 </script>
+
+<style scoped>
+.q-table th.sortable {
+    cursor: pointer;
+    font-weight: bold;
+}
+</style>

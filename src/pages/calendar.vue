@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <q-toolbar>
-      <q-btn flat dense label="Hoy" class="q-mr-md bg-yellow text-black" @click="setToday()"></q-btn>
+      <q-btn flat dense label="Hoy" class="q-mr-md bg-positive text-black" @click="setToday()"></q-btn>
       <q-btn flat dense round icon="keyboard_arrow_left" class="q-mr-sm bg-blue text-white" @click="onPrev()"></q-btn>
       <q-btn flat dense round icon="keyboard_arrow_right" class="bg-blue text-white" @click="onNext"></q-btn>
       <span class="q-mr-xl text-black q-toolbar__title nowrap">{{ title() }}</span>

@@ -58,7 +58,7 @@
               <div class="text-h6 col-12">Sales vs Goals
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('bar')"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </div>
             </q-card-section>
@@ -77,7 +77,7 @@
               <div class="text-h6 col-12">Market Share & Growth
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('line')"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </div>
             </q-card-section>
@@ -96,7 +96,7 @@
               <div class="text-h6 col-12">Sales vs Quota
                 <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('gauge')"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
               </div>
 
@@ -118,7 +118,7 @@
             <div class="text-h6">Key Competitors
               <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('pie')"
                      :color="!$q.dark.isActive? 'grey-8':'white'">
-                <q-tooltip>Download</q-tooltip>
+                <q-tooltip>Exportar a CSV</q-tooltip>
               </q-btn>
             </div>
           </q-card-section>
@@ -136,7 +136,7 @@
             <div class="text-h6">Sales Pipeline by Sales Rep
               <q-btn flat dense icon="fas fa-download" class="float-right" @click="SaveImage('stack_bar')"
                      :color="!$q.dark.isActive? 'grey-8':'white'">
-                <q-tooltip>Download</q-tooltip>
+                <q-tooltip>Exportar a CSV</q-tooltip>
               </q-btn>
             </div>
           </q-card-section>
@@ -202,7 +202,7 @@
 
               <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
             </template>
           </q-table>
@@ -608,4 +608,9 @@
   .orange_dark {
     background-color: #64350e;
   }
+  .q-table th.sortable {
+    cursor: pointer;
+    font-weight: bold;
+}
 </style>
+

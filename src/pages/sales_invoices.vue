@@ -2,7 +2,7 @@
   <q-page class="q-pa-sm">
     <q-card>
       <q-table
-        title="Invoices"
+        title="Pedidos"
         :data="data"
         :hide-header="mode === 'grid'"
         :columns="columns"
@@ -45,7 +45,7 @@
             flat
             round
             dense
-            :icon="mode === 'grid' ? 'list' : 'grid_on'"
+            :icon="mode === 'grid' ? 'list' : 'grid_view'"
             @click="mode = mode === 'grid' ? 'list' : 'grid'; separator = mode === 'grid' ? 'none' : 'horizontal'"
             v-if="!props.inFullscreen"
           >
@@ -57,18 +57,18 @@
           </q-btn>
           <q-btn flat dense icon="fas fa-download" class="float-right" @click="exportTable"
                        :color="!$q.dark.isActive? 'grey-8':'white'">
-                  <q-tooltip>Download</q-tooltip>
+                  <q-tooltip>Exportar a CSV</q-tooltip>
                 </q-btn>
         </template>
         <template v-slot:body-cell-status="props">
           <q-td :props="props">
             <q-chip
-              :color="(props.row.status == 'Active')?'green':(props.row.status == 'Inactive'?'red':'grey')"
+            style="padding:1rem 0.7rem"
+              :color="props.row.color"
               text-color="white"
               dense
               class="text-weight-bolder"
               square
-              style="width: 85px"
             >{{props.row.status}}
             </q-chip>
           </q-td>
@@ -164,7 +164,7 @@
         </q-card-section>
 
         <q-card-actions align="right" class="text-teal">
-          <q-btn label="Save" type="submit" color="primary" v-close-popup/>
+          <q-btn label="Guardar" type="submit" color="positive" text-color="white" v-close-popup/>
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -173,6 +173,7 @@
 
 <script>
     import {exportFile} from "quasar";
+import { checkServerIdentity } from "tls";
 
     function wrapCsvValue(val, formatFn) {
         let formatted = formatFn !== void 0 ? formatFn(val) : val;
@@ -208,42 +209,118 @@
                         sortable: true
                     },
                     {
-                        name: "account",
-                        required: true,
-                        label: "Artículo",
+                        name: "tracking",
                         align: "left",
-                        field: "account",
+                        label: "Tracking",
+                        field: "tracking",
                         sortable: true
                     },
                     {
-                        name: "client",
-                        required: true,
-                        label: "Cliente",
+                        name: "email",
                         align: "left",
-                        field: "client",
+                        label: "Email",
+                        field: "email",
                         sortable: true
                     },
                     {
-                        name: "amount",
+                        name: "date",
                         align: "left",
-                        label: "Total",
-                        field: "amount",
+                        label: "Fecha",
+                        field: "date",
                         sortable: true
                     },
                     {
-                        name: "invoice_date",
+                        name: "name",
                         align: "left",
-                        label: "Fecha de factura",
-                        field: "invoice_date",
+                        label: "Nombre",
+                        field: "name",
                         sortable: true
                     },
                     {
-                        name: "invoice_type",
+                        name: "address",
                         align: "left",
-                        label: "Forma de pago",
-                        field: "invoice_type",
+                        label: "Dirección",
+                        field: "address",
                         sortable: true
                     },
+                    {
+                        name: "zip_code",
+                        align: "left",
+                        label: "Código postal",
+                        field: "zip_code",
+                        sortable: true
+                    },
+                    {
+                        name: "city",
+                        align: "left",
+                        label: "Ciudad",
+                        field: "city",
+                        sortable: true
+                    },
+                    {
+                        name: "state",
+                        align: "left",
+                        label: "Provincia",
+                        field: "state",
+                        sortable: true
+                    },
+                    {
+                        name: "country",
+                        align: "left",
+                        label: "País",
+                        field: "country",
+                        sortable: true
+                    },
+                    {
+                        name: "phone",
+                        align: "left",
+                        label: "Teléfono",
+                        field: "phone",
+                        sortable: true
+                    },
+                    {
+                        name: "product",
+                        align: "left",
+                        label: "Producto",
+                        field: "product",
+                        sortable: true
+                    },
+                    {
+                        name: "product_image",
+                        align: "left",
+                        label: "Foto",
+                        field: "product_image",
+                        sortable: true
+                    },
+                    {
+                        name: "product_link",
+                        align: "left",
+                        label: "Enlace",
+                        field: "product_link",
+                        sortable: true
+                    },
+                    {
+                        name: "payment",
+                        align: "left",
+                        label: "Pago",
+                        field: "payment",
+                        sortable: true
+                    },
+                    {
+                        name: "cost",
+                        align: "left",
+                        label: "Precio coste",
+                        field: "cost",
+                        sortable: true
+                    },
+                    {
+                        name: "pvp",
+                        align: "left",
+                        label: "PVP",
+                        field: "pvp",
+                        sortable: true
+                    },
+
                     {
                         name: "status",
                         align: "left",
@@ -255,146 +332,92 @@
                 data: [
                     {
                         invoice_id: "C001",
-                        reference:"UPKNQIRQL",
-                        account: "Nike Air Force One Blancas",
-                        client:"Cliente1",
-                        amount: "67,05",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Pago aceptadoe",
-                        invoice_date: "09-02-2019",
+                        reference:"XXXXXXXX",
+                        tracking:"XXXXXXX",
+                        email:"xxxx@gmail.com",
+                        date:"09-02-2019",
+                        name:"Batman",
+                        address:"Gotham",
+                        zip_code:"xxx",
+                        city:"Gotham City",
+                        state:"Gotham state",
+                        country:"EEUU",
+                        phone:"++xx xxx-xxx-xx",
+                        product:"Nike Air Force One Blancas",
+                        product_image:"xxx",
+                        product_link:"xxx",
+                        payment:"Tarjeta Redsys",
+                        cost:"",
+                        pvp:"67.05",
+                        status: "Pago aceptado",
+                        color:"accent"
                     },
                     {
                         invoice_id: "C002",
-                        reference:"UPKNQIRQL",
-                        account: "Dr. Martens Altas Plataforma Negras",
-                        client:"Cliente1",
-                        amount: "87,05€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Últmo recordatorio de pago",
-                        invoice_date: "03-25-2019",
-
+                        reference:"XXXXXXXX",
+                        tracking:"XXXXXXX",
+                        email:"xxxx@gmail.com",
+                        date:"03-25-2019",
+                        name:"Batman",
+                        address:"Gotham",
+                        zip_code:"xxx",
+                        city:"Gotham City",
+                        state:"Gotham state",
+                        country:"EEUU",
+                        phone:"++xx xxx-xxx-xx",
+                        product:"Dr. Martens Altas Plataforma Negras",
+                        product_image:"xxx",
+                        product_link:"xxx",
+                        payment:"Tarjeta Redsys",
+                        cost:"",
+                        pvp:"180,0€",
+                        status: "Pago aceptado",
+                        color:"accent"
                     },
                     {
                         invoice_id: "C003",
-                        reference:"UPKNQIRQL",
-                        account: "Converse All Star Plataforma Altas Blancas",
-                        client:"Cliente1",
-                        amount: "65,16€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Active",
-                        invoice_date: "03-18-2019",
-
+                        reference:"XXXXXXXX",
+                        tracking:"XXXXXXX",
+                        email:"xxxx@gmail.com",
+                        date:"03-25-2019",
+                        name:"Batman",
+                        address:"Gotham",
+                        zip_code:"xxx",
+                        city:"Gotham City",
+                        state:"Gotham state",
+                        country:"EEUU",
+                        phone:"++xx xxx-xxx-xx",
+                        product:"Dr. Martens Altas Plataforma Negras",
+                        product_image:"xxx",
+                        product_link:"xxx",
+                        payment:"Tarjeta Redsys",
+                        cost:"",
+                        pvp:"59,05€",
+                        status: "Pendiente",
+                        color:"primary"
                     },
                     {
                         invoice_id: "C004",
-                        reference:"UPKNQIRQL",
-                        account: "Nike Air Force One Negras",
-                        client:"Cliente1",
-                        amount: "67,05€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Inactive",
-                        invoice_date: "04-09-2019",
-
+                        reference:"XXXXXXXX",
+                        tracking:"XXXXXXX",
+                        email:"xxxx@gmail.com",
+                        date:"03-25-2019",
+                        name:"Batman",
+                        address:"Gotham",
+                        zip_code:"xxx",
+                        city:"Gotham City",
+                        state:"Gotham state",
+                        country:"EEUU",
+                        phone:"++xx xxx-xxx-xx",
+                        product:"Dr. Martens Altas Plataforma Negras",
+                        product_image:"xxx",
+                        product_link:"xxx",
+                        payment:"Tarjeta Redsys",
+                        cost:"",
+                        pvp:"87,05€",
+                        status: "Pago rechazado",
+                        color:"negative"
                     },
-                    {
-                        invoice_id: "C005",
-                        reference:"UPKNQIRQL",
-                        account: "Converse All Star Altas De Plataforma Negras",
-                        client:"Cliente1",
-                        amount: "65,16€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Active",
-                        invoice_date: "09-03-2019",
-
-                    },
-                    {
-                        invoice_id: "C006",
-                        reference:"UPKNQIRQL",
-                        account: "Nike Air Force One Blancas Altas",
-                        client:"Cliente1",
-                        amount: "76,55€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Active",
-                        invoice_date: "01-12-2019",
-
-                    },
-                    {
-                        invoice_id: "C007",
-                        reference:"UPKNQIRQL",
-                        account: "Converse Run Star Hike High Top Negras",
-                        client:"Cliente1",
-                        amount: "64,05€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Active",
-                        invoice_date: "04-15-2019",
-
-                    },
-                    {
-                        invoice_id: "C008",
-                        reference:"UPKNQIRQL",
-                        account: "CONVERSE ALL STAR CUERO PLATAFORMA ALTAS NEGRAS",
-                        client:"Cliente1",
-                        amount: "100€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Active",
-                        invoice_date: "11-09-2019",
-
-                    },
-                    {
-                        invoice_id: "C009",
-                        reference:"UPKNQIRQL",
-                        account: "CONVERSE CHUCK TAYLOR MOVE NEGRAS",
-                        client:"Cliente1",
-                        amount: "105€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Inactive",
-                        invoice_date: "01-01-2019",
-
-                    },
-                    {
-                        invoice_id: "C010",
-                        reference:"UPKNQIRQL",
-                        account: "CONVERSE RUN STAR HIKE HIGH LOW TOP BLANCAS",
-                        client:"Cliente1",
-                        amount: "105€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Active",
-                        invoice_date: "04-12-2019",
-
-                    },
-                    {
-                        invoice_id: "C011",
-                        reference:"UPKNQIRQL",
-                        account: "CONVERSE ALL STAR ROJAS BAJAS",
-                        client:"Cliente1",
-                        amount: "70€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Active",
-                        invoice_date: "10-09-2019",
-
-                    },
-                    {
-                        invoice_id: "C012",
-                        reference:"UPKNQIRQL",
-                        account: "CONVERSE CHUCK TAYLOR MOVE BEIGE",
-                        client:"Cliente1",
-                        amount: "115€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Active",
-                        invoice_date: "01-02-2019",
-
-                    },
-                    {
-                        invoice_id: "C014",
-                        reference:"UPKNQIRQL",
-                        account: "CONVERSE ALL STAR NEGRAS ENTERAS BAJAS",
-                        client:"Cliente1",
-                        amount: "70€",
-                        invoice_type: "Tarjeta Redsys",
-                        status: "Active",
-                        invoice_date: "07-06-2019",
-
-                    }
                 ],
                 pagination: {
                     rowsPerPage: 10
@@ -439,4 +462,10 @@
     display: block;
     text-align: center;
   }
+  .q-table th.sortable {
+    cursor: pointer;
+    font-weight: bold;
+}
 </style>
+
+
