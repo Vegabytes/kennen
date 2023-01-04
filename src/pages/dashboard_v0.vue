@@ -15,7 +15,7 @@
           <q-separator inset></q-separator>
 
           <q-card-section>
-            <q-table title="Purpleshop" :data="data" :hide-header="mode === 'grid'" :columns="columns"
+            <q-table title="Purpleshop" :data="data" :columns="columns"
               row-key="name" :filter="filter_purpleshop" :pagination.sync="pagination"
               :class="$q.dark.isActive ? 'text-white' : 'text-grey-8'">
               <template v-slot:top-right="props">
@@ -282,7 +282,7 @@
               <q-item>
                 <q-item-section>
                   <q-item-label class="q-pb-xs">Link de la tienda</q-item-label>
-                  <q-input dense outlined v-model="shop.city" label="Ciudad"/>
+                  <q-input dense outlined v-model="shop.city" label="Link de la tienda"/>
                 </q-item-section>
               </q-item>
       <!--         <q-item>

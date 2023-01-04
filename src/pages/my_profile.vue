@@ -48,8 +48,8 @@
 
               <q-input
                 filled
-                v-model="user.age"
-                label="Edad"
+                v-model="user.alias"
+                label="Alias"
 
               />
 
@@ -68,7 +68,7 @@
               />
 
               <div>
-                <q-btn label="Actualizar" type="submit" color="positive" text-color="white"/>
+                <q-btn label="Actualizar" type="submit" color="accent" no-caps text-color="white"/>
               </div>
             </q-form>
           </q-card-section>
@@ -85,7 +85,6 @@
                 user: {
                     first_name: 'Alejandro',
                     last_name: 'Castillo',
-                    age: '?',
                     email: 'aca******@*****.com',
                     phone: '68******03'
                 },

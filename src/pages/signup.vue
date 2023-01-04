@@ -15,18 +15,14 @@
           :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'"
         />
         <q-card
-          class="login-form"
+          class="login-form q-pt-lg"
           v-bind:style="
             $q.platform.is.mobile ? { width: '80%' } : { width: '30%' }
           "
         >
      <!--    <q-img src="/statics/images/pharmacy.jpg"></q-img> -->
           <q-card-section>
-            <q-avatar
-              size="74px"
-              class="absolute"
-              style="top: 0;right: 25px;transform: translateY(-50%);"
-            >
+            <q-avatar size="65px" class="absolute" style="top: 0;right: -30px;transform: translateY(-70%);">
               <img src="../statics/images/kennen.jpeg" />
             </q-avatar>
             <div class="row no-wrap items-center">
@@ -40,7 +36,7 @@
               <q-input filled v-model="username" label="Nombre completo" lazy-rules />
               <q-input filled v-model="alias" label="Alias" lazy-rules />
               <q-input filled v-model="email" label="Correo electrónico" lazy-rules />
-              <q-input filled v-model="age" label="Edad" lazy-rules />
+<!--               <q-input filled v-model="age" label="Edad" lazy-rules /> -->
               <q-input filled v-model="phone" label="Teléfono" lazy-rules />
 
               <q-input
@@ -68,7 +64,7 @@
                   text-color="$dark"
                   @click="loginNotify"
                 /> -->
-                <q-btn class="full-width" @click="signupNotify" to="/dashboard" color="accent" label="Iniciar Sesión" type="submit"></q-btn>
+                <q-btn class="full-width" @click="signupNotify" to="/dashboard" color="accent" no-caps label="Registrarse" type="submit"></q-btn>
 
 <!--                 <a
                   style="font-size: 30px;"
@@ -245,7 +241,7 @@ methods: {
     }
 </script>
 
-<style>
+<style scoped>
 #particles-js {
   position: absolute;
   width: 100%;
@@ -264,5 +260,12 @@ methods: {
 }
 .login-form {
   position: absolute;
+}
+
+@media only screen and (min-width:320px) and (max-width:480px){
+  .login-form {
+  position: relative;
+  margin-top: 5rem;
+}
 }
 </style>

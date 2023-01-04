@@ -12,9 +12,6 @@
         :pagination.sync="pagination"
       >
         <template v-slot:top-right="props">
-          <q-btn @click="new_customer=true" color="black" label="Nuevo" class="q-mr-xs  text-capitalize"/>
-
-
           <q-input outlined dense debounce="300" v-model="filter" placeholder="Buscar">
             <template v-slot:append>
               <q-icon name="search"/>
@@ -98,20 +95,6 @@
                     mask="date"
                     label="Fecha alta"
                   >
-                    <template v-slot:append>
-                      <q-icon name="event" class="cursor-pointer">
-                        <q-popup-proxy
-                          ref="lastCallProxy"
-                          transition-show="scale"
-                          transition-hide="scale"
-                        >
-                          <q-date
-                            v-model="customer.last_call"
-                            @input="() => $refs.lastCallProxy.hide()"
-                          />
-                        </q-popup-proxy>
-                      </q-icon>
-                    </template>
                   </q-input>
                 </q-item-section>
               </q-item>
@@ -120,7 +103,7 @@
         </q-card-section>
 
         <q-card-actions align="right" class="text-teal">
-          <q-btn label="Guardar" type="submit" color="positive" text-color="white" v-close-popup/>
+          <q-btn label="Guardar" type="submit" color="accent" no-caps text-color="white" v-close-popup/>
         </q-card-actions>
       </q-card>
     </q-dialog>

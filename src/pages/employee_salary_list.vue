@@ -165,7 +165,7 @@
         </q-card-section>
 
         <q-card-actions align="right" class="text-teal">
-          <q-btn label="Guardar" type="submit" color="positive" text-color="white" v-close-popup/>
+          <q-btn label="Guardar" type="submit" no-caps color="accent" text-color="white" v-close-popup/>
         </q-card-actions>
       </q-card>
     </q-dialog>

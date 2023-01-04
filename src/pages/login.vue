@@ -5,11 +5,11 @@
         <div id="particles-js" :class="$q.dark.isActive ? 'dark_gradient' : 'normal_gradient'"></div>
         <q-btn color="white" class="absolute-top-right" flat round @click="$q.dark.toggle()"
           :icon="$q.dark.isActive ? 'nights_stay' : 'wb_sunny'" />
-        <q-card class="login-form" v-bind:style="
+        <q-card class="login-form q-pt-lg" v-bind:style="
   $q.platform.is.mobile ? { width: '80%' } : { width: '30%' }
 ">
           <q-card-section>
-            <q-avatar size="74px" class="absolute" style="top: 0;right: 25px;transform: translateY(-50%);">
+            <q-avatar size="65px" class="absolute" style="top: 0;right: -30px;transform: translateY(-70%);">
               <img src="../statics/images/kennen.jpeg" />
             </q-avatar>
             <div class="row no-wrap items-center">
@@ -25,7 +25,7 @@
               <q-input type="password" filled v-model="password" label="Contraseña" lazy-rules />
 
               <div>
-                <q-btn class="full-width" @click="loginNotify" to="/dashboard" color="accent" label="Iniciar Sesión"
+                <q-btn class="full-width" @click="loginNotify" to="/dashboard" color="accent" no-caps label="Iniciar sesión"
                   type="submit"></q-btn>
               </div>
               <div>
@@ -63,7 +63,7 @@
 methods: {
            loginNotify(){
              this.$q.notify({
-        message: 'Login Correcto',
+        message: 'Login correcto',
       })
            }
          },
