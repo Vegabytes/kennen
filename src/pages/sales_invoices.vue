@@ -72,9 +72,9 @@
           </q-btn>
       </template>
         <template v-slot:body="props">
-          <q-tr :props="props"  :class="props.row.incidences && 'bg-warning'">
+          <q-tr :props="props"  :class="props.row.incidences  && 'bg-grey-5'">
             <q-td style="text-align:center" key="invoice_id" :props="props" >
-              <q-btn size="sm" color="primary" outline flat @click="props.expand = !props.expand" :icon="props.expand ? 'remove' : 'add'" />
+              <q-btn size="sm" color="black" outline flat @click="props.expand = !props.expand" :icon="props.expand ? 'remove' : 'add'" />
               {{ props.row.invoice_id }}
             </q-td>
             <q-td style="text-align:center" key="reference" :props="props">

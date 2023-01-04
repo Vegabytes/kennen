@@ -104,7 +104,7 @@
       </q-card>
     </q-dialog>
     <q-dialog v-model="new_user">
-      <q-card style="width: 600px; max-width: 60vw;">
+      <q-card style="width: 600px;">
         <q-card-section>
           <div class="text-h6">
            Añadir nuevo usuario
@@ -198,42 +198,42 @@
                 columns: [
                     {
                         name: "serial_no",
-                        align: "left",
+                        align: "center",
                         label: "Identificador",
                         field: "serial_no",
                         sortable: true
                     },
                     {
                         name: "name",
-                        align: "left",
+                        align: "center",
                         label: "Nombre",
                         field: "name",
                         sortable: true
                     },
                     {
                         name: "email",
-                        align: "left",
+                        align: "center",
                         label: "Email",
                         field: "email",
                         sortable: true
                     },
                     {
                         name: "profile",
-                        align: "left",
+                        align: "center",
                         label: "Perfil",
                         field: "profile",
                         sortable: true
                     },
                     {
                         name: "status",
-                        align: "left",
+                        align: "center",
                         label: "Estado",
                         field: "status",
                         sortable: true
                     },
                     {
                         name: "action",
-                        align: "left",
+                        align: "center",
                         label: "Acciones",
                         field: "action",
                         sortable: true

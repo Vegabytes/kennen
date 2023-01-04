@@ -71,7 +71,7 @@
       </q-table>
     </q-card>
     <q-dialog v-model="new_customer">
-      <q-card style="width: 600px; max-width: 60vw;">
+      <q-card style="width: 600px;">
 <!--         <q-card-section>
           <div class="text-h6">
             Add new change request

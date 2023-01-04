@@ -262,7 +262,7 @@
       </div>
     </div>
     <q-dialog v-model="new_shop">
-      <q-card style="width: 600px; max-width: 60vw;">
+      <q-card style="width: 600px;">
         <q-card-section>
           <div class="text-h6">
             Añadir nueva tienda
@@ -465,20 +465,20 @@ export default {
         },
       ],
       columnsAll: [
-        { name: 'activity_id', align: 'left', label: 'Id Pedido', field: 'activity_id', sortable: true },
-        { name: 'desc', align: 'left', label: 'Descripción', field: 'desc', sortable: true },
-        { name: 'regarding', align: 'left', label: 'Estado', field: 'regarding', sortable: true },
-        /*                     {name: 'owner', align: 'left', label: 'Owner', field: 'owner', sortable: true}, */
+        { name: 'activity_id', align: 'center', label: 'Id Pedido', field: 'activity_id', sortable: true },
+        { name: 'desc', align: 'center', label: 'Descripción', field: 'desc', sortable: true },
+        { name: 'regarding', align: 'center', label: 'Estado', field: 'regarding', sortable: true },
+        /*                     {name: 'owner', align: 'center', label: 'Owner', field: 'owner', sortable: true}, */
         {
           name: 'creation_date',
-          align: 'left',
+          align: 'center',
           label: 'Fecha',
           field: 'creation_date',
           sortable: true
         },
         {
           name: 'shop',
-          align: 'left',
+          align: 'center',
           label: 'Tienda',
           field: 'shop',
           sortable: true
