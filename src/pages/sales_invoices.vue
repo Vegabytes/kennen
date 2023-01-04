@@ -110,7 +110,18 @@
               </q-popup-edit>
             </q-td>
             <q-td style="text-align:center" key="pvp" :props="props">{{ props.row.pvp }}</q-td>
-            <q-td style="text-align:center" key="status" :props="props">{{ props.row.status }}</q-td>
+            <q-td style="text-align:center" key="status" :props="props">
+              <q-chip
+              style="padding:1rem 0.7rem"
+              :color="props.row.color"
+              text-color="white"
+              dense
+              class="text-weight-bolder"
+              square
+            >{{props.row.status}}
+            </q-chip>
+
+            </q-td>
             <q-td style="text-align:center" key="incidences" :props="props">
               <q-btn v-if="!props.row.incidences" flat dense icon="notification_important">
                 <q-tooltip>Añadir incidencia</q-tooltip>
@@ -135,79 +146,6 @@
 
       </q-table>
     </q-card>
-    <q-dialog v-model="invoice_dialog">
-      <q-card style="width: 600px; max-width: 60vw;">
-        <q-card-section>
-          <div class="text-h6">
-            Add new invoice
-            <q-btn round flat dense icon="close" class="float-right" color="grey-8" v-close-popup></q-btn>
-          </div>
-        </q-card-section>
-        <q-separator inset></q-separator>
-        <q-card-section class="q-pt-none">
-          <q-form class="q-gutter-md">
-            <q-list>
-              <q-item>
-                <q-item-section>
-                  <q-item-label class="q-pb-xs">Account</q-item-label>
-                  <q-input dense outlined v-model="invoice.account" label="Account" />
-                </q-item-section>
-              </q-item>
-              <q-item>
-                <q-item-section>
-                  <q-item-label class="q-pb-xs">Amount</q-item-label>
-                  <q-input dense outlined v-model="invoice.amount" label="Amount" />
-                </q-item-section>
-              </q-item>
-              <q-item>
-                <q-item-section>
-                  <q-item-label class="q-pb-xs">Invoice Date</q-item-label>
-                  <q-input dense outlined v-model="invoice.invoice_date" mask="date" label="Invoice Date">
-                    <template v-slot:append>
-                      <q-icon name="event" class="cursor-pointer">
-                        <q-popup-proxy ref="invoiceDateProxy" transition-show="scale" transition-hide="scale">
-                          <q-date v-model="invoice.invoice_date" @input="() => $refs.invoiceDateProxy.hide()" />
-                        </q-popup-proxy>
-                      </q-icon>
-                    </template>
-                  </q-input>
-                </q-item-section>
-              </q-item>
-              <q-item>
-                <q-item-section>
-                  <q-item-label class="q-pb-xs">Due Date</q-item-label>
-                  <q-input dense outlined v-model="invoice.due_date" mask="date" label="Due Date">
-                    <template v-slot:append>
-                      <q-icon name="event" class="cursor-pointer">
-                        <q-popup-proxy ref="dueDateProxy" transition-show="scale" transition-hide="scale">
-                          <q-date v-model="invoice.due_date" @input="() => $refs.dueDateProxy.hide()" />
-                        </q-popup-proxy>
-                      </q-icon>
-                    </template>
-                  </q-input>
-                </q-item-section>
-              </q-item>
-              <q-item>
-                <q-item-section>
-                  <q-item-label class="q-pb-xs">Invoice Type</q-item-label>
-                  <q-input dense outlined v-model="invoice.invoice_type" label="Invoice Type" />
-                </q-item-section>
-              </q-item>
-              <q-item>
-                <q-item-section>
-                  <q-item-label class="q-pb-xs">Status</q-item-label>
-                  <q-input dense outlined v-model="invoice.status" label="Status" />
-                </q-item-section>
-              </q-item>
-            </q-list>
-          </q-form>
-        </q-card-section>
-
-        <q-card-actions align="right" class="text-teal">
-          <q-btn label="Guardar" type="submit" color="positive" text-color="white" v-close-popup />
-        </q-card-actions>
-      </q-card>
-    </q-dialog>
   </q-page>
 </template>
 
@@ -468,7 +406,8 @@ export default {
           cost: "50.00",
           pvp: "87,05€",
           status: "Pago rechazado",
-          color: "negative", incidences: "bla bla"
+          color: "negative",
+          incidences: "bla bla"
 
         },
       ],
