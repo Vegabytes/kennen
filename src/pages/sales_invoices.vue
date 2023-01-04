@@ -2,48 +2,49 @@
   <q-page class="q-pa-sm">
     <q-card>
       <q-table title="Pedidos" :data="data" :hide-header="mode === 'grid'" :columns="columns" row-key="invoice_id"
-        :grid="mode == 'grid'" :filter="filter" :pagination.sync="pagination"
-        :visible-columns="visibleColumns">
+        :grid="mode == 'grid'" :filter="filter" :pagination.sync="pagination" :visible-columns="visibleColumns"
+        :class="$q.dark.isActive ? 'text-white' : 'text-grey-8'">
         <template v-slot:top="props">
-        <q-space />
+          <q-space />
 
-        <div v-if="$q.screen.gt.xs" class="col">
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="invoice_id" label="ID" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="reference" label="Referencia" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="tracking" label="Tracking" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="email" label="Email" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="date" label="Fecha" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="name" label="Nombre" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="address" label="Dirección" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="zip_code" label="Código postal" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="city" label="Ciudad" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="state" label="Provincia" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="country" label="País" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="phone" label="Teléfono" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="product" label="Producto" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="product_image" label="Foto" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="product_link" label="Enlace" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="payment" label="Pago" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="cost" label="Precio coste" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="pvp" label="PVP" />
-          <q-toggle checked-icon="add" unchecked-icon="remove" v-model="visibleColumns" val="status" label="Estado" />
-<!--           <q-tocggle v-model="visibleColumns" val="incidence" label="Incidencias" /> -->
-
-        </div>
-        <q-select
-          v-else
-          v-model="visibleColumns"
-          multiple
-          borderless
-          dense
-          options-dense
-          :display-value="$q.lang.table.columns"
-          emit-value
-          map-options
-          :options="columns"
-          option-value="name"
-          style="min-width: 150px"
-        />
+          <div v-if="$q.screen.gt.xs" class="col">
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="invoice_id"
+              label="ID" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="reference"
+              label="Referencia" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="tracking"
+              label="Tracking" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="email" label="Email" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="date" label="Fecha" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="name" label="Nombre" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="checkress"
+              label="Dirección" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="zip_code"
+              label="Código postal" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="city" label="Ciudad" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="state"
+              label="Provincia" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="country"
+              label="País" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="phone"
+              label="Teléfono" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="product"
+              label="Producto" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="product_image"
+              label="Foto" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="product_link"
+              label="Enlace" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="payment"
+              label="Pago" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="cost"
+              label="Precio coste" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="pvp" label="PVP" />
+            <q-toggle checked-icon="check" unchecked-icon="remove" v-model="visibleColumns" val="status"
+              label="Estado" />
+          </div>
+          <q-select v-else v-model="visibleColumns" multiple borderless dense options-dense
+            :display-value="$q.lang.table.columns" emit-value map-options :options="columns" option-value="name"
+            style="min-width: 150px" />
 
           <q-input outlined dense debounce="300" v-model="filter" placeholder="Buscar">
             <template v-slot:append>
@@ -53,10 +54,9 @@
 
           <q-btn flat round dense :icon="props.inFullscreen ? 'fullscreen_exit' : 'fullscreen'"
             @click="props.toggleFullscreen" v-if="mode === 'list'">
-            <q-tooltip
-              :disable="$q.platform.is.mobile"
-              v-close-popup
-            >{{props.inFullscreen ? 'Exit Fullscreen' : 'Toggle Fullscreen'}}
+            <q-tooltip :disable="$q.platform.is.mobile" v-close-popup>{{ props.inFullscreen ? 'Exit Fullscreen' :
+                    'Toggle Fullscreen'
+                }}
             </q-tooltip>
           </q-btn>
 
@@ -70,11 +70,12 @@
             :color="!$q.dark.isActive ? 'grey-8' : 'white'">
             <q-tooltip>Exportar a CSV</q-tooltip>
           </q-btn>
-      </template>
+        </template>
         <template v-slot:body="props">
-          <q-tr :props="props"  :class="props.row.incidences  && 'bg-grey-5'">
-            <q-td style="text-align:center" key="invoice_id" :props="props" >
-              <q-btn size="sm" color="black" outline flat @click="props.expand = !props.expand" :icon="props.expand ? 'remove' : 'add'" />
+          <q-tr :props="props" :class="props.row.incidences && 'bg-grey-5'">
+            <q-td style="text-align:center" key="invoice_id" :props="props">
+              <q-btn size="sm" color="black" outline flat @click="props.expand = !props.expand"
+                :icon="props.expand ? 'remove' : 'add'" />
               {{ props.row.invoice_id }}
             </q-td>
             <q-td style="text-align:center" key="reference" :props="props">
@@ -105,21 +106,15 @@
             <q-td style="text-align:center" key="payment" :props="props">{{ props.row.payment }}</q-td>
             <q-td style="text-align:center" key="cost" :props="props">
               {{ props.row.cost }}€
-              <q-popup-edit v-model="props.row.cost" title="Precio de coste" buttons persistent v-slot="scope">
-                <q-input type="text" v-model="scope.value" dense autofocus hint="Haz click para cerrar"/>
+              <q-popup-edit v-model="props.row.cost" title="Precio de coste" buttons v-slot="scope">
+                <q-input type="text" v-model="scope.value" dense autofocus hint="Haz click para cerrar" />
               </q-popup-edit>
             </q-td>
             <q-td style="text-align:center" key="pvp" :props="props">{{ props.row.pvp }}</q-td>
             <q-td style="text-align:center" key="status" :props="props">
-              <q-chip
-              style="padding:1rem 0.7rem"
-              :color="props.row.color"
-              text-color="white"
-              dense
-              class="text-weight-bolder"
-              square
-            >{{props.row.status}}
-            </q-chip>
+              <q-chip style="padding:1rem 0.7rem;border-radius: 2rem;font-size: 0.8rem;" :class=props.row.color
+                text-color="white" dense class="text-weight-bolder" square>{{ props.row.status }}
+              </q-chip>
 
             </q-td>
             <q-td style="text-align:center" key="incidences" :props="props">
@@ -133,13 +128,13 @@
             </q-td>
           </q-tr>
           <q-tr v-show="props.expand" :props="props">
-          <q-td colspan="10%">
-            <div class="text-left">{{ props.row.incidences ? props.row.incidences : "Añadir incidencia"}}.</div>
-            <q-popup-edit v-model="props.row.incidences" title="Incidencias" buttons persistent v-slot="scope">
+            <q-td colspan="10%">
+              <div class="text-left">{{ props.row.incidences ? props.row.incidences : "Añadir incidencia" }}.</div>
+              <q-popup-edit v-model="props.row.incidences" title="Incidencias" buttons v-slot="scope">
                 <q-input type="text" v-model="scope.value" dense autofocus hint="Haz click para cerrar" />
               </q-popup-edit>
-          </q-td>
-        </q-tr>
+            </q-td>
+          </q-tr>
         </template>
 
 
@@ -153,6 +148,7 @@
 import { exportFile } from "quasar";
 import { ref } from 'vue'
 import { checkServerIdentity } from "tls";
+import { color } from "echarts/lib/export";
 
 function wrapCsvValue(val, formatFn) {
   let formatted = formatFn !== void 0 ? formatFn(val) : val;
@@ -172,12 +168,13 @@ export default {
       mode: "list",
       invoice: {},
       invoice_dialog: false,
-      visibleColumns: [ 'invoice_id', 'reference', 'tracking', 'email', 'date', 'name', 'address', 'zip_code','city','state','country','phone','product','product_image','product_link','payment','cost','pvp','status' ],
+      visibleColumns: ['invoice_id', 'reference', 'tracking', 'email', 'date', 'name', 'address', 'zip_code', 'city', 'state', 'country', 'phone', 'product', 'product_image', 'product_link', 'payment', 'cost', 'pvp', 'status'],
+
       columns: [
         {
           name: "invoice_id",
           align: "center",
-          label: "ID",
+          label: "Id",
           field: "invoice_id",
           sortable: true
         },
@@ -308,13 +305,6 @@ export default {
           field: "status",
           sortable: true
         },
-/*         {
-          name: "incidences",
-          align: "center",
-          label: "Incidencias",
-          field: "incidences",
-          sortable: true
-        } */
       ],
       data: [
         {
@@ -337,7 +327,7 @@ export default {
           cost: "50.00",
           pvp: "67.05€",
           status: "Pago aceptado",
-          color: "accent",
+          color: 'accepted',
           incidences: "Integer vitae vehicula magna, fermentum dignissim mi euismod"
         },
         {
@@ -359,8 +349,8 @@ export default {
           payment: "Tarjeta Redsys",
           cost: "50.00",
           pvp: "180,0€",
-          status: "Pago aceptado",
-          color: "accent",
+          status: "Preparación en curso",
+          color: 'progress',
           incidences: ""
         },
         {
@@ -382,8 +372,8 @@ export default {
           payment: "Tarjeta Redsys",
           cost: "50.00",
           pvp: "59,05€",
-          status: "Pendiente",
-          color: "primary",
+          status: "Enviado",
+          color: 'sent',
           incidences: ""
         },
         {
@@ -405,11 +395,125 @@ export default {
           payment: "Tarjeta Redsys",
           cost: "50.00",
           pvp: "87,05€",
-          status: "Pago rechazado",
-          color: "negative",
+          status: "En tránsito",
+          color:  'transit',
           incidences: "bla bla"
-
         },
+        {
+          invoice_id: "C005",
+          reference: "XXXXXXXX",
+          tracking: "XXXXXXX",
+          email: "xxxx@gmail.com",
+          date: "03-25-2019",
+          name: "Batman",
+          address: "Gotham",
+          zip_code: "xxx",
+          city: "Gotham City",
+          state: "Gotham state",
+          country: "EEUU",
+          phone: "+xx xxx-xxx-xx",
+          product: "Dr. Martens Altas Plataforma Negras",
+          product_image: "xxx",
+          product_link: "xxx",
+          payment: "Tarjeta Redsys",
+          cost: "50.00",
+          pvp: "87,05€",
+          status:"En reparto",
+          color:'indelivery',
+          incidences: "bla bla"
+        },
+        {
+          invoice_id: "C006",
+          reference: "XXXXXXXX",
+          tracking: "XXXXXXX",
+          email: "xxxx@gmail.com",
+          date: "03-25-2019",
+          name: "Batman",
+          address: "Gotham",
+          zip_code: "xxx",
+          city: "Gotham City",
+          state: "Gotham state",
+          country: "EEUU",
+          phone: "+xx xxx-xxx-xx",
+          product: "Dr. Martens Altas Plataforma Negras",
+          product_image: "xxx",
+          product_link: "xxx",
+          payment: "Tarjeta Redsys",
+          cost: "50.00",
+          pvp: "87,05€",
+          status: "Entregado",
+          color: 'delivered',
+          incidences: "bla bla"
+        },
+        {
+          invoice_id: "C007",
+          reference: "XXXXXXXX",
+          tracking: "XXXXXXX",
+          email: "xxxx@gmail.com",
+          date: "03-25-2019",
+          name: "Batman",
+          address: "Gotham",
+          zip_code: "xxx",
+          city: "Gotham City",
+          state: "Gotham state",
+          country: "EEUU",
+          phone: "+xx xxx-xxx-xx",
+          product: "Dr. Martens Altas Plataforma Negras",
+          product_image: "xxx",
+          product_link: "xxx",
+          payment: "Tarjeta Redsys",
+          cost: "50.00",
+          pvp: "87,05€",
+          status: "Recogida",
+          color: 'pickup',
+          incidences: "bla bla"
+        },
+        {
+          invoice_id: "C008",
+          reference: "XXXXXXXX",
+          tracking: "XXXXXXX",
+          email: "xxxx@gmail.com",
+          date: "03-25-2019",
+          name: "Batman",
+          address: "Gotham",
+          zip_code: "xxx",
+          city: "Gotham City",
+          state: "Gotham state",
+          country: "EEUU",
+          phone: "+xx xxx-xxx-xx",
+          product: "Dr. Martens Altas Plataforma Negras",
+          product_image: "xxx",
+          product_link: "xxx",
+          payment: "Tarjeta Redsys",
+          cost: "50.00",
+          pvp: "87,05€",
+          status: "Cancelado",
+          color: 'cancelled',
+          incidences: "bla bla"
+        },
+        {
+          invoice_id: "C009",
+          reference: "XXXXXXXX",
+          tracking: "XXXXXXX",
+          email: "xxxx@gmail.com",
+          date: "03-25-2019",
+          name: "Batman",
+          address: "Gotham",
+          zip_code: "xxx",
+          city: "Gotham City",
+          state: "Gotham state",
+          country: "EEUU",
+          phone: "+xx xxx-xxx-xx",
+          product: "Dr. Martens Altas Plataforma Negras",
+          product_image: "xxx",
+          product_link: "xxx",
+          payment: "Tarjeta Redsys",
+          cost: "50.00",
+          pvp: "87,05€",
+          status: "Reembolsado",
+          color: 'refunded',
+          incidences: "bla bla"
+        }
       ],
       pagination: {
         rowsPerPage: 10
@@ -449,17 +553,17 @@ export default {
   },
 
   computed: {
-  hasIncidence() {
-    return {
-      active: this.isActive && !this.error,
-      'text-danger': this.error && this.error.type === 'fatal'
+    hasIncidence() {
+      return {
+        active: this.isActive && !this.error,
+        'text-danger': this.error && this.error.type === 'fatal'
+      }
     }
   }
-}
 };
 </script>
 
-<style>
+<style scoped>
 .q-chip__content {
   display: block;
   text-align: center;
@@ -469,9 +573,11 @@ export default {
   cursor: pointer;
   font-weight: bold;
 }
+
 .q-toggle__inner--truthy {
-color: #E8C124;
+  color: #E8C124;
 }
+
 .q-btn {
   text-transform: capitalize;
 }
@@ -479,6 +585,35 @@ color: #E8C124;
 .q-table__card .q-table__top {
   align-items: flex-start;
 }
+
+.accepted {
+background-color:#3BDF13;
+}
+.progress {
+background-color:#F9D314;
+}
+.sent {
+background-color:#0A21C6;
+}
+.transit {
+background-color:#AA0AC6;
+}
+.indelivery {
+background-color:#F99F14;
+}
+.delivered {
+background-color:#14F925;
+}
+.pickup {
+background-color:#F03300;
+}
+.cancelled {
+background-color:#C83F1A;
+}
+.refunded {
+background-color:#6865B1;
+}
+
 </style>
 
 
